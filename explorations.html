@@ -1,0 +1,31 @@
+
+<div id="rtTab">
+<div scroll-thing id="projects1">
+  <a href="./images/pranoy_cv.pdf" target="_blank"><img width="100%" src="./images/resume.jpg"></a>
+   <a is-active-nav href="#/explorations/{{project.divID}}" id="{{project.anotherID}}" ng-click="pullProject(project)" ng-repeat="project in projects">
+   <div>
+
+   <div class="project">
+      <img class="thumb" ng-src="{{project.thumb}}" />
+      <p id="name">{{project.projectName}}</p>
+      <p id="tags">#{{project.hashTag1}}, #{{project.hashTag2}}, #{{project.hashTag3}}</p>
+   </div>
+   </div>   
+   </a>
+</div>
+      
+<div id="projectInfo">
+
+     <div my-carousel class="media-gallery" ="mediaGallery">
+        <div ng-bind-html-unsafe="selected.media1" class="item">{{selected.media1}}</div>
+        <div ng-bind-html-unsafe="selected.media2" class="item">{{selected.media2}}</div>
+        <div ng-bind-html-unsafe="selected.media3" class="item">{{selected.media3}}</div>
+      </div>
+      <div id="proTextInfo">
+        <p><b>{{selected.projectName}}</b></p>
+        <p id="tags">#{{selected.hashTag1}}, #{{selected.hashTag2}}, #{{selected.hashTag3}}</p>
+        <br/>
+        <p ng-bind-html-unsafe="selected.desc" >{{selected.desc}}</p>
+      </div>
+</div>
+</div>

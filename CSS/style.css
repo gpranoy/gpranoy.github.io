@@ -1,0 +1,184 @@
+body{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 11;
+	text-align: center;
+	margin: 0px;
+	overflow-x: hidden;
+}
+
+a:link { /* Essentially means a[href], or that the link actually goes somewhere */
+	color: black;
+  text-decoration: none;
+}
+a:visited {
+	color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+a:active {
+  color: black;
+  text-decoration: underline;
+}
+
+.active{
+	text-decoration: underline;
+	outline-color: green;	
+}
+
+p{
+	line-height: normal;
+	margin: 0px;
+}
+#video1{
+	position: fixed;
+	display: none;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+#wrapper {
+	position: relative;
+	margin: 0 auto;
+	width: 80%;
+	height: 100%;
+}
+#aboutMe{
+	text-align: left;
+	padding: 10% 0px 10% 20%;
+}
+#leftTab {
+	-webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+	position: fixed;
+	margin: 0 auto;
+	top: 45%;
+	left: 7%;
+	width: 20%;
+	text-align: right;
+	
+}
+#leftTab:hover{
+	opacity: 1;
+}
+
+#rightTab	{
+-webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+	position: absolute;
+	width: 80%;
+	height: 100%;
+	left: 10%;
+}
+
+.thumb	{
+	margin-bottom: 2%;
+}
+.pranoy{
+	padding: 0px 0px 0px 0px;
+}
+
+#projects1{
+	position: fixed;
+	overflow: scroll;
+	width: 18%;
+	text-align: left;
+	height: 100%;
+	left: 18%;
+	padding-top: 1%;
+	padding-bottom: 10%;
+	display: inline-block;
+}
+#projectInfo{
+	position: absolute;
+	width: 75%;
+	background: #fafafa;
+	top:0%;
+	left: 30%;
+	display: inline-block;	
+	padding: 20px;
+	text-align: left;
+	margin-bottom: 10%;
+}
+#rtTab{
+
+}
+
+#mediaGallery .item{
+
+  background: #fafafa;
+  color: #FFF;
+  margin-bottom: 2%;
+}
+
+.project{
+	position: relative;
+	width: parent;
+	height: 140px;
+	padding: 0px;
+	padding-right: 20px;
+	padding-left: 20px;
+	margin-bottom: 70px;
+
+}
+
+#img{
+	position: relative;
+	background-color: yellow;
+	height: 100px;	
+	margin-bottom: 5px;
+}
+#proInfo{
+	background: #FCFFFC;
+	margin-bottom: 5%;
+}
+
+#proTextInfo{
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+#tags{
+	color: #666666;
+
+}
+#name{
+	font-weight: bold;
+}
+#desc{
+}
+
+#ytplayer{
+	width: 100%;
+	height: 46.7%;
+}
+
+.bottom{
+	position: absolute;
+	top: 60%;
+	left: 70%;
+}
+.anotherBottom{
+
+	position: absolute;
+	top: 75%;
+	padding-bottom: 5%;
+	
+}
+
+.anotherBottom p{
+	background: #fafafa;	
+}
+
+.slick-slide img {
+    display: block;
+    width: 100%;
+}
+

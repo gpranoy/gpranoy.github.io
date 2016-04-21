@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+
+  <title>Parallax.js | Interactive Example</title>
+
+  <!-- Behavioral Meta Data -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+
+</head>
+<body style="overflow:hidden;">
+
+<div id="header" style="text-align:center; margin:8% 0 5% 0"><h1>getPastNow</h1></div>
+  <div id="container" style="background:white; width:100%; height:400px;">
+    <ul id="scene" class="scene border fill">
+    <li style="margin-left:25%" class="layer" data-depth="0.3"><iframe width="560" height="315" src="https://www.youtube.com/embed/Pj75GbqwJ9A" frameborder="0" allowfullscreen></iframe></li>
+    <li style="margin-left:-10%;" class="layer" data-depth="0.8"><a href="#"><img src="./images/cosmos.png"></a></li>
+    <li style="margin-left:85%; margin-top:1.5%" class="layer" data-depth="0.8"><a href="#"><img src="./images/bhand.png"></a></li>
+    </ul>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./js/parallax/deploy/parallax.js"></script>
+  <script>
+  // Nothing new here...it's all in the CSS!
+  var scene = document.getElementById('scene');
+  var parallax = new Parallax(scene);
+  </script>
+
+</body>
+</html>

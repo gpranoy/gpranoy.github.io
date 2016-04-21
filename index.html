@@ -1,0 +1,131 @@
+<html ng-app="gpranoyApp">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+<script src="./app.js"></script>
+
+    <title>Now, that you're here...</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="CSS/style.css" type="text/css" />
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js" type="text/javascript"></script>
+
+<link rel="stylesheet" type="text/css" href="./scripts/slick/slick.css"/>
+
+
+<script src="./scripts/jquery-1.9.1.min.js"></script>
+
+<script type="text/javascript">
+  $.fn.scrollTo = function( target, options, callback ){
+  if(typeof options == 'function' && arguments.length == 2){ callback = options; options = target; }
+  var settings = $.extend({
+    scrollTarget  : target,
+    offsetTop     : 0,
+    duration      : 25,
+    easing        : 'swing'
+  }, options);
+  return this.each(function(){
+    var scrollPane = $(this);
+    var scrollTarget = (typeof settings.scrollTarget == "number") ? settings.scrollTarget : $(settings.scrollTarget);
+    var scrollY = (typeof scrollTarget == "number") ? scrollTarget : scrollTarget.offset().top + scrollPane.scrollTop() - parseInt(settings.offsetTop);
+    scrollPane.animate({scrollTop : scrollY }, parseInt(settings.duration), settings.easing, function(){
+      if (typeof callback == 'function') { callback.call(this); }
+    });
+  });
+}
+</script>
+    <script type="text/javascript">
+    var IE = document.all?true:false;
+
+    function menu(value)  {
+
+      switch(value) {
+        case '1':
+        $("#rightTab").fadeOut("fast");
+        $("#leftTab").animate({left:'7%'},"fast");
+        document.getElementById('abt').style.textDecoration = 'none';
+        document.getElementById('pro').style.textDecoration = 'none';
+        break;
+
+        case '2':
+        $("#rightTab").fadeIn("fast");
+        document.getElementById('abt').style.textDecoration = 'underline';
+        document.getElementById('pro').style.textDecoration = 'none'; 
+        break;
+
+        case '3':
+        $("#aboutMe").fadeOut("fast");
+        $("#rightTab").fadeIn("fast");
+        $("#rtTab").fadeIn("fast");
+        $("#leftTab").animate({left:'-3%'},"fast");
+        document.getElementById('abt').style.textDecoration = 'none';
+        document.getElementById('pro').style.textDecoration = 'underline';
+        break;
+      }
+    }
+
+function start()  {
+      
+  document.captureEvents(Event.MOUSEMOVE);
+  document.onmousemove = getMouseXY;
+
+    var myVideo = document.getElementById('video1');
+    myVideo.onload = hideIt();
+  }
+
+function hideIt() {
+
+      document.getElementById('loading').style.visibility = 'collapse';
+      var myVideo = document.getElementById('video1');
+      $("#video1").fadeIn(100);
+      myVideo.currentTime = myVideo.duration*0.1;
+    }
+
+    function getMouseXY(e) {
+
+ 
+    tempY = e.pageY;
+    if (tempY < 0){tempY = 0;}  
+
+    var myVideo = document.getElementById('video1');
+    var ht = window.outerHeight;
+    var temp = tempY/ht;
+
+    if(temp<0.98) {
+    myVideo.currentTime = myVideo.duration*(temp);
+    } 
+    return true;
+  }
+  </script>
+</head>
+
+<body onload="start()" >
+
+  <video id="video1">
+    <source src="./images/bg.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+  <div id="loading" style="position:fixed; top: 50%; left: 50%">loading...
+  </div> 
+
+  
+  <div id="wrapper" ng-controller="myController">
+  
+  <div id="rightTab">
+
+      <div ng-view></div>
+      
+  </div>
+  </div>  
+
+
+    <div id="leftTab">
+    <a class="pranoy" onclick="menu('1');" href="#"><b>PRANOY GUDURU</b></a><br/><br/>
+    <br/><br/>
+    <p style="font-size : 9;">New Media<br/>Interaction Design<br/>Candy And Tech Addict</p><br/>
+    <a id="abt" class="links" onclick="menu('2');" href="#/aboutMe" >A Little Bit <b>About Me</b><br/></a><br/>
+    <a id="pro" class="links" onclick="menu('3');" href="#/explorations">A Few Explorations And<br/> <b>Projects</b><br/></a><br/>
+    <a class="links" target="_blank" href="http://www.gpranoy.tumblr.com">Read My Opinions<br/><b>My Blog</b></a>
+  </div>
+  <script type="text/javascript" src="./scripts/slick/slick.min.js"></script>
+
+</body>
+</html>

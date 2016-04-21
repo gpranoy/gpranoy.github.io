@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>Google Cosmos | Now, Search In Space & Time</title>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<link href='./style/style.css' rel='stylesheet' type='text/css'>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link rel="stylesheet" href="./scripts/owl/owl-carousel/owl.carousel.css">
+<!-- Default Theme -->
+<link rel="stylesheet" href="./scripts/owl/owl-carousel/owl.theme.css">
+<!-- Include js plugin -->
+<script src="./scripts/owl/owl-carousel/owl.carousel.js"></script>
+</head>
+<body>
+<div id="header">	
+	<img style="height:65px;" src="./images/logo.jpg">
+</div>
+<div id="banner" class="owl-carousel owl-theme">
+  <div class="item"><img src="./images/slider1.jpg"></div>
+  <div class="item"><img src="./images/slider2.jpg"> </div>
+  <div class="item"><img src="./images/slider3.jpg"></div>
+  <div class="item"><img src="./images/slider4.jpg"></div>
+</div>
+<div style="font-size:10px; text-align:left;" id="footer">
+	<p><a style="text-align:left;margin-left: 100px;" href="http://www.google.com">Google</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a style="text-align:left;" href="https://www.google.com/intl/en/about/">About Google</a></p>
+</div>
+<a class="pure-button pure-button-primary" style="position:relative; top:-180px; padding-top:10px; padding-bottom:10px; font-size:20px;" href="#">Sign Up for Beta Access > </a>
+<img style="position:absolute; top:96%; left:1%;" src="./images/cern.png">
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+ 
+  $("#banner").owlCarousel({
+      slideSpeed : 200,
+      paginationSpeed : 400,
+      singleItem:true,
+      autoPlay : true
+ 
+      // "singleItem:true" is a shortcut for:
+      // items : 1, 
+      // itemsDesktop : false,
+      // itemsDesktopSmall : false,
+      // itemsTablet: false,
+      // itemsMobile : false
+ 
+  });
+});
+</script>
+</body>
+</html>

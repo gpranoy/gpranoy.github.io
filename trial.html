@@ -1,0 +1,77 @@
+<html>
+<head>
+    <title>Now, that you're here...</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="CSS/style.css" type="text/css" />
+    
+    <link href="./CSS/video-js.css" rel="stylesheet">
+    <script src="./scripts/video.js"></script>
+    
+    <script type="text/javascript">
+    var anotherTempX = 0, anotherTempY =0;
+    var IE = document.all?true:false;   
+
+    function start()  {
+    if (!IE) document.captureEvents(Event.MOUSEMOVE);
+    document.onmousemove = getMouseXY;
+    }
+
+    function hideIt(){
+      document.getElementById('loading').style.display = 'none';
+      var myVideo = document.getElementById('video1');
+      myVideo.currentTime = myVideo.duration*0.1;
+    }
+
+    function getMouseXY(e) {
+   // var tempX = e.pageX;
+   tempY = e.pageY;
+  //if (tempX < 0){tempX = 0;}
+  if (tempY < 0){tempY = 0;}  
+
+  //player.currentTime(3);
+  var temp = tempY/document.height;
+  if(temp<0.9) {
+    console(" "+temp);
+    player.currentTime(temp*9); 
+  }
+  return true;
+}
+
+    </script>
+</head>
+
+<body onload="start()">
+
+  
+  <video id="video1">
+    <source src="./images/bg.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+  <div id="loading" style=" position:fixed;top: 50%;left: 50%">loading...</div> 
+
+  <script type="text/javascript">
+  var player = videojs('video1');
+  player.ready(function(){
+    console.log('hello?');
+
+  });
+  </script>
+  
+  <div id="wrapper">
+  
+    <div id="leftTab">
+    <a class="pranoy" href="#pranoy"><b>PRANOY GUDURU</b></a><br/><br/>
+    
+    <br/><br/>
+    <p style="font-size : 9;">New Media<br/>Interaction Design<br/>Candy And Tech Addict</p><br/>
+    <a class="links" href="#aboutMe">A Little Bit <b>About Me</b><br/></a><br/>
+    <a class="links" href="#Projects">A Few Explorations And<br/> <b>Projects</b><br/></a><br/>
+    <a class="links" href="#blog">Read My Opinions<br/><b>My Blog</b></a>
+  </div>
+
+  <div id="rightTab">
+    <p id="test"></p>
+  </div>
+    </div>
+</body>
+</html>
