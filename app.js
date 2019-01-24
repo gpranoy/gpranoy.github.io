@@ -149,7 +149,7 @@ var controller = function($scope,DataSource) {
 
     var len = $scope.projects.length;
     var loc = String(window.location);
-    for(var i=len-1;i<=0;i--) {
+    for(var i=0;i<len;i++) {
         var temp = String($scope.projects[i].divID);
         
         var val = loc.search(temp);
