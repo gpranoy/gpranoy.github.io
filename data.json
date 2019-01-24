@@ -1,19 +1,5 @@
 [
     {
-        "index":"10",
-        "projectName": "The Missing Sun and renders on torch lights",
-        "divID": "missing",
-        "anotherID": "mis",
-        "thumb": "./images/convo_thumb.jpg",
-        "desc": "Contributions to the project: <br/> Created a turn-to-dial interace using arduino. Also, made the application to explore content with the turn-to-dial interface using ActionScript, Flash. <br/><br/>Interactive Painting. Worked on projection mapping and created an elementary particle engine for butterflies that choose random paths to various flowers in the painiting.<br/><br/>Collaborators : New Media Design, 2013 Batch <br/> Special Thanks: Arshad Pathan",
-        "media1": "<img src=\"./images/convo3.jpg\"/>",
-        "media2": "<img src=\"./images/convo2.jpg\"/>",
-        "media3": "<img src=\"./images/convo1.jpg\"/>",
-        "hashTag1": "Particle_Engine",
-        "hashTag2": "Arduino",
-        "hashTag3": "ActionScript"
-    },
-    {
         "index":"0",
         "projectName": "getPastNow",
         "divID": "getPastNow",
