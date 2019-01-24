@@ -1,5 +1,19 @@
 [
     {
+        "index":"10",
+        "projectName": "The Missing Sun and renders on torch lights",
+        "divID": "missing",
+        "anotherID": "mis",
+        "thumb": "./images/miss_thumb.jpg",
+        "desc": "Graduation Project, April 2018 - Masters in New Media Design at NID, India.\r\nPranoy Guduru\r\nGuide : Dr. Jignesh Khakhar.\r\n\r\n\"The missing sun and renders on torch lights\" is a film\/video essay.  It emerged from an investigative study exploring ideas around Paradoxes in Circularity, Self Reflection, Dialectics of Perspectives\/Omniscience, Constructivism\/ Positivism and Subjective Experiences\/Objective Explanations.\r\n\r\n<a href=\"https:\/\/paper.dropbox.com\/doc\/The-missing-sun-and-renders-on-torch-lights..--AWMg9G51iyhAw4~XJRCV6J2QAQ-7t0afu4Lb53e5oA1PhGQ5\"><b>View Film and Documentation Page.<\/b><\/a>\r\n\r\nGraduation Project | April 2018",
+        "media1": "<img src=\"./images/miss1.jpg\"/>",
+        "media2": "<img src=\"./images/miss2.jpg\"/>",
+        "media3": "<img src=\"./images/miss3.jpg\"/>",
+        "hashTag1": "Film",
+        "hashTag2": "Speculative Fiction",
+        "hashTag3": "  "
+    },
+    {
         "index":"0",
         "projectName": "getPastNow",
         "divID": "getPastNow",
