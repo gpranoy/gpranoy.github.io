@@ -30,6 +30,10 @@ gpranoyApp.config(function($routeProvider) {
                 templateUrl : './explorations.html',
                 controller  : 'controller'
             })
+            .when('/explorations/missing', {
+                templateUrl : './explorations.html',
+                controller  : 'controller'
+            })
                 .when('/explorations/sayl', {
                 templateUrl : './explorations.html',
                 controller  : 'controller'
