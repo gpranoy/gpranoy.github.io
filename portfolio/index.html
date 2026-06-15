@@ -187,14 +187,22 @@
       color: rgba(255, 255, 255, 0.78);
     }
 
-    @keyframes ux-glow {
-      0%, 100% { color: rgba(255,255,255,0.92); text-shadow: none; }
-      40%, 60% { color: #FFC107; text-shadow: 0 0 22px rgba(255,193,7,0.5), 0 0 44px rgba(255,193,7,0.2); }
+    @keyframes ux-marker {
+      0%, 5%    { background-position: 100% center; }
+      30%, 70%  { background-position:   0% center; }
+      95%, 100% { background-position: 100% center; }
     }
 
     .ux-highlight {
       display: inline;
-      animation: ux-glow 4s ease-in-out 1s infinite;
+      font-weight: 600;
+      background-image: linear-gradient(to right, rgba(255, 193, 7, 0.38) 50%, transparent 50%);
+      background-size: 200% 0.82em;
+      background-repeat: no-repeat;
+      background-position: 100% center;
+      padding: 0 3px;
+      border-radius: 2px;
+      animation: ux-marker 5s ease-in-out 1s infinite;
     }
 
     /* ─── HERO FEATURED CARD ─── */
@@ -821,7 +829,7 @@
     </h1>
     <div class="hero-bio">
       <ul>
-        <li>I have 7y experience as a <strong class="ux-highlight" style="font-weight:600;">UX Designer &amp; Researcher</strong> working with early stage startups and global product teams in agile settings</li>
+        <li>I have 7y experience as a <strong class="ux-highlight">UX Designer &amp; Researcher</strong> working with early stage startups and global product teams in agile settings</li>
         <li>I'm lucky to graduate with a masters in New Media design from NID, India</li>
       </ul>
     </div>
