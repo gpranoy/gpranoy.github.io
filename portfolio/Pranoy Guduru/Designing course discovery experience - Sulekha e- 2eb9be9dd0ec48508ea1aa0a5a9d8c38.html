@@ -946,18 +946,19 @@ th { color: rgba(255,255,255,0.4) !important; background: rgba(255,255,255,0.04)
 <style>
 /* Full header override for subpages */
 .pg-header {
-  max-width: 1200px;
+  max-width: 820px;
   margin: 0 auto;
-  padding: 48px 48px 0;
+  padding: 52px 48px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 110px;
 }
 .pg-site-name {
   font-family: 'Mozilla Headline', serif;
   font-size: 24px;
   font-weight: 400;
-  color: rgba(255,255,255,0.9);
+  color: rgba(255,255,255,0.65) !important;
   letter-spacing: -0.01em;
   text-decoration: none !important;
 }
@@ -987,20 +988,21 @@ th { color: rgba(255,255,255,0.4) !important; background: rgba(255,255,255,0.04)
 .pg-resume-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  width: 151px;
   height: 40px;
-  padding: 0 16px;
   border-radius: 12px;
   background: #FFC107;
   font-family: 'Mozilla Text', sans-serif;
   font-size: 14px;
   font-weight: 600;
-  color: #1C2B40;
+  color: #1C2B40 !important;
   text-decoration: none !important;
-  transition: opacity 0.15s, transform 0.15s;
+  transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s;
   white-space: nowrap;
 }
-.pg-resume-btn:hover { opacity: 0.92; transform: translateY(-2px); }
+.pg-resume-btn:hover { opacity: 0.92; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,193,7,0.4); }
 .pg-resume-btn svg { flex-shrink: 0; }
 
 .pg-has-tooltip { position: relative; }
@@ -1026,8 +1028,8 @@ th { color: rgba(255,255,255,0.4) !important; background: rgba(255,255,255,0.04)
 .pg-has-tooltip:hover::after { opacity: 1; transform: translateX(-50%) translateY(0); }
 
 .pg-back-row {
-  max-width: 1200px;
-  margin: 20px auto 0;
+  max-width: 820px;
+  margin: 16px auto 0;
   padding: 0 48px;
 }
 /* Override pg-back from previous injection */
