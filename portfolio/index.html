@@ -22,19 +22,38 @@
       background: url('bg.png') repeat;
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
+      padding-top: 80px;
+      animation: pgFadeIn 0.45s ease-out both;
+    }
+
+    @keyframes pgFadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes pgFadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     a { text-decoration: none; color: inherit; }
 
     /* ─── HEADER ─── */
     .header {
-      max-width: 1440px;
-      margin: 0 auto;
-      padding: 52px 294px 0;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: url('bg.png') repeat;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 110px;
+      padding: 0 294px;
+      height: 80px;
+      transition: box-shadow 0.25s ease;
+    }
+
+    .header.scrolled {
+      box-shadow: 0 2px 28px rgba(0, 0, 0, 0.55);
     }
 
     .site-name {
@@ -152,6 +171,7 @@
       grid-template-columns: 460px 1fr;
       gap: 80px;
       align-items: start;
+      animation: pgFadeUp 0.6s ease-out 0.05s both;
     }
 
     .hero-heading {
@@ -188,21 +208,20 @@
     }
 
     @keyframes ux-marker {
-      0%, 5%    { background-position: 100% center; }
-      30%, 70%  { background-position:   0% center; }
-      95%, 100% { background-position: 100% center; }
+      0%   { background-position: 100% center; }
+      100% { background-position:   0% center; }
     }
 
     .ux-highlight {
       display: inline;
       font-weight: 600;
-      background-image: linear-gradient(to right, rgba(255, 193, 7, 0.38) 50%, transparent 50%);
-      background-size: 200% 0.82em;
+      background-image: linear-gradient(to right, rgba(255, 193, 7, 0.82) 50%, transparent 50%);
+      background-size: 200% 0.85em;
       background-repeat: no-repeat;
       background-position: 100% center;
-      padding: 0 3px;
+      padding: 0 4px;
       border-radius: 2px;
-      animation: ux-marker 5s ease-in-out 1s infinite;
+      animation: ux-marker 0.75s ease-out 1.4s forwards;
     }
 
     /* ─── HERO FEATURED CARD ─── */
@@ -210,6 +229,7 @@
       max-width: 1440px;
       margin: 48px auto 0;
       padding: 0 294px;
+      animation: pgFadeUp 0.6s ease-out 0.25s both;
     }
 
     .hero-card-inner {
@@ -317,6 +337,7 @@
       max-width: 1440px;
       margin: 0 auto;
       padding: 72px 294px 0;
+      animation: pgFadeUp 0.65s ease-out 0.35s both;
     }
 
     .section-header {
@@ -644,14 +665,37 @@
       text-underline-offset: 2px;
     }
 
+    /* ─── COPY TOAST ─── */
+    #copy-toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: rgba(10, 15, 25, 0.92);
+      color: #fff;
+      font-family: 'Mozilla Text', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      padding: 10px 22px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 500;
+      white-space: nowrap;
+    }
+    #copy-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
     /* ─── RESPONSIVE ─── */
 
     /* Tablet: 768px–1100px */
     @media (max-width: 1100px) {
       .header {
-        padding: 40px 48px 0;
-        height: auto;
-        padding-bottom: 24px;
+        padding: 0 48px;
       }
 
       .hero {
@@ -673,12 +717,15 @@
 
     /* Mobile: ≤767px */
     @media (max-width: 767px) {
+      body { padding-top: 0; }
+
       /* Header */
       .header {
-        padding: 24px 20px;
+        position: static;
+        padding: 20px 20px 16px;
         height: auto;
         flex-wrap: wrap;
-        gap: 16px;
+        gap: 12px;
       }
 
       .site-name { font-size: 20px; }
@@ -809,7 +856,7 @@
       </button>
 
       <!-- View Resume -->
-      <a href="Pranoy Guduru/pranoy_cv_May2022.pdf" target="_blank"
+      <a href="Pranoy_CV-3.pdf" target="_blank"
          class="resume-btn has-tooltip" data-tooltip="Download PDF">
         <svg class="resume-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#1C2B40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1009,6 +1056,8 @@
     </div>
   </section>
 
+  <div id="copy-toast"></div>
+
   <script>
     /* ── Video carousel ── */
     function scrollVideos(dir) {
@@ -1016,32 +1065,54 @@
       el.scrollBy({ left: dir * 416, behavior: 'smooth' });
     }
 
-    /* ── Copy to clipboard ── */
+    /* ── Toast ── */
+    function showToast(msg) {
+      var t = document.getElementById('copy-toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(t._timer);
+      t._timer = setTimeout(function() { t.classList.remove('show'); }, 2200);
+    }
+
+    /* ── Copy to clipboard (with mobile fallback) ── */
     function copyItem(event, el) {
       event.preventDefault();
-      const text = el.dataset.copy;
+      var text = el.dataset.copy;
       if (!text) return;
 
-      navigator.clipboard.writeText(text).then(() => {
-        const original = el.dataset.tooltip;
-        el.dataset.tooltip = 'Copied: ' + text;
+      function confirm() {
+        var original = el.dataset.tooltip;
+        el.dataset.tooltip = 'Copied!';
         el.classList.add('copied');
-        setTimeout(() => {
+        showToast('Copied: ' + text);
+        setTimeout(function() {
           el.dataset.tooltip = original;
           el.classList.remove('copied');
         }, 2200);
-      }).catch(() => {
-        el.dataset.tooltip = 'Copy failed';
-        setTimeout(() => { el.dataset.tooltip = el.dataset.copy ? 'Copy ' + (el.getAttribute('aria-label') || '') : el.dataset.tooltip; }, 1500);
-      });
+      }
+
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;font-size:16px;';
+        document.body.appendChild(ta);
+        ta.focus(); ta.select();
+        try { document.execCommand('copy'); confirm(); } catch(e) {}
+        document.body.removeChild(ta);
+      }
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(confirm).catch(fallback);
+      } else {
+        fallback();
+      }
     }
 
     /* ── View more toggle ── */
     function toggleViewMore() {
-      const cards = document.getElementById('view-more-cards');
-      const btn = document.getElementById('view-more-btn');
-      const isOpen = cards.classList.contains('open');
-
+      var cards = document.getElementById('view-more-cards');
+      var btn = document.getElementById('view-more-btn');
+      var isOpen = cards.classList.contains('open');
       if (isOpen) {
         cards.classList.remove('open');
         btn.classList.remove('open');
@@ -1055,12 +1126,23 @@
     }
 
     /* ── Make entire card clickable ── */
-    document.querySelectorAll('[data-href]').forEach(card => {
-      card.addEventListener('click', (e) => {
+    document.querySelectorAll('[data-href]').forEach(function(card) {
+      card.addEventListener('click', function(e) {
         if (e.target.closest('a, button')) return;
         window.location.href = card.dataset.href;
       });
     });
+
+    /* ── Fixed header scroll shadow ── */
+    (function() {
+      var header = document.querySelector('.header');
+      if (!header) return;
+      function onScroll() {
+        if (window.scrollY > 10) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
   </script>
 
 </body>

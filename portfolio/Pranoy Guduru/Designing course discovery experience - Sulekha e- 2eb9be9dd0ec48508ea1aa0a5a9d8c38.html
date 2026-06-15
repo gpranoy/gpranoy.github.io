@@ -1054,6 +1054,105 @@ th { color: rgba(255,255,255,0.4) !important; background: rgba(255,255,255,0.04)
   .pg-header { padding: 24px 20px 0; flex-wrap: wrap; gap: 16px; }
   .pg-back-row { padding: 0 20px; margin-top: 14px; }
 }
+
+/* ── Loading animation ── */
+@keyframes pgFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pgFadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+html { animation: pgFadeIn 0.4s ease-out both; }
+article.page { animation: pgFadeUp 0.55s ease-out 0.1s both; }
+
+/* ── Toast ── */
+#pg-copy-toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(10, 15, 25, 0.92);
+  color: #fff;
+  font-family: 'Mozilla Text', sans-serif;
+  font-size: 13px;
+  padding: 10px 22px;
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.12);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 500;
+  white-space: nowrap;
+}
+#pg-copy-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── Fixed header ── */
+body {
+  padding-top: 128px !important;
+}
+.pg-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  max-width: none !important;
+  height: 72px !important;
+  padding: 0 max(20px, calc((100vw - 820px) / 2 + 48px)) !important;
+  z-index: 100;
+  background: url('../bg.png') repeat !important;
+  transition: box-shadow 0.25s ease !important;
+}
+.pg-header.scrolled {
+  box-shadow: 0 2px 28px rgba(0,0,0,0.55) !important;
+}
+.pg-site-name {
+  /* ensure vertical center in fixed bar */
+  line-height: 1 !important;
+}
+.pg-back-row {
+  position: fixed !important;
+  top: 72px !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 99 !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 10px max(20px, calc((100vw - 820px) / 2 + 48px)) !important;
+  background: url('../bg.png') repeat !important;
+  border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+}
+
+/* ── Mobile responsive ── */
+@media (max-width: 820px) {
+  body { padding-top: 110px !important; }
+  .pg-header {
+    padding: 0 20px !important;
+    height: 60px !important;
+  }
+  .pg-back-row {
+    top: 60px !important;
+    padding: 8px 20px !important;
+  }
+  .pg-site-name { font-size: 18px !important; }
+  .pg-icon-btn { width: 36px !important; height: 36px !important; }
+  .pg-resume-btn { width: 130px !important; font-size: 13px !important; }
+  article.page { padding: 32px 20px 64px !important; }
+  .column-list { flex-direction: column !important; gap: 16px !important; }
+  .column { flex: 1 1 100% !important; }
+}
+
+@media (max-width: 480px) {
+  .pg-header { flex-wrap: wrap !important; height: auto !important; padding: 12px 20px !important; gap: 10px !important; }
+  body { padding-top: 130px !important; }
+  .pg-back-row { top: auto !important; position: static !important; }
+  .pg-resume-btn { width: 120px !important; font-size: 12px !important; }
+  .pg-header-right { gap: 8px !important; }
+}
 </style>
 </head><body>
 <header class="pg-header">
@@ -1086,7 +1185,7 @@ th { color: rgba(255,255,255,0.4) !important; background: rgba(255,255,255,0.04)
       </svg>
     </button>
 
-    <a href="pranoy_cv_May2022.pdf" target="_blank"
+    <a href="Pranoy_CV-3.pdf" target="_blank"
        class="pg-resume-btn pg-has-tooltip" data-tooltip="Download PDF">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#1C2B40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1136,17 +1235,57 @@ th { color: rgba(255,255,255,0.4) !important; background: rgba(255,255,255,0.04)
 </p></div><div style="display:contents" dir="auto"><p id="86fc4aa8-be7f-4ad3-ab0d-f86772f53c8f" class="">
 </p></div><div style="display:contents" dir="auto"><ol type="1" id="94c75aae-8130-4236-a3a7-7f43763b2803" class="numbered-list" start="5"><li><strong>Shortlist experience</strong></li></ol></div><div style="display:contents" dir="ltr"><figure id="b7efe585-b8df-4ec9-a3a1-8e3b3150dba2" class="image"><a href="Designing%20course%20discovery%20experience%20-%20Sulekha%20e-/Untitled%209.png"><img style="width:288px" src="Designing%20course%20discovery%20experience%20-%20Sulekha%20e-/Untitled%209.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="666770ec-d1a6-4518-a802-19e3dba685f3" class="">
 </p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span><script>
-function pgCopyItem(event, el) {
-  event.preventDefault();
-  var text = el.dataset.copy;
-  if (!text) return;
-  navigator.clipboard.writeText(text).then(function() {
-    var orig = el.dataset.tooltip;
-    el.dataset.tooltip = 'Copied: ' + text;
-    el.classList.add('copied');
-    setTimeout(function() { el.dataset.tooltip = orig; el.classList.remove('copied'); }, 2200);
-  });
-}
+(function() {
+  /* ── Toast ── */
+  function showToast(msg) {
+    var t = document.getElementById('pg-copy-toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer = setTimeout(function() { t.classList.remove('show'); }, 2200);
+  }
+
+  /* ── Copy to clipboard (with mobile fallback) ── */
+  window.pgCopyItem = function(event, el) {
+    event.preventDefault();
+    var text = el.dataset.copy;
+    if (!text) return;
+
+    function confirm() {
+      var orig = el.dataset.tooltip;
+      el.dataset.tooltip = 'Copied!';
+      el.classList.add('copied');
+      showToast('Copied: ' + text);
+      setTimeout(function() { el.dataset.tooltip = orig; el.classList.remove('copied'); }, 2200);
+    }
+
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;font-size:16px;';
+      document.body.appendChild(ta);
+      ta.focus(); ta.select();
+      try { document.execCommand('copy'); confirm(); } catch(e) {}
+      document.body.removeChild(ta);
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(confirm).catch(fallback);
+    } else {
+      fallback();
+    }
+  };
+
+  /* ── Scroll shadow on fixed header ── */
+  var hdr = document.querySelector('.pg-header');
+  if (hdr) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 10) hdr.classList.add('scrolled');
+      else hdr.classList.remove('scrolled');
+    }, { passive: true });
+  }
+})();
 </script>
 <script>
 (function () {
