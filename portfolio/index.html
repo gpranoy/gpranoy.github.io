@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pranoy Guduru</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@400;700&family=Mozilla+Text:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Mozilla Text', sans-serif;
+      color: #ffffff;
+      background: url('bg.png') repeat;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── HEADER ─── */
+    .header {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 52px 294px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 110px;
+    }
+
+    .site-name {
+      font-family: 'Mozilla Headline', serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.9);
+      letter-spacing: -0.01em;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* ─── TOOLTIPS ─── */
+    .has-tooltip {
+      position: relative;
+    }
+
+    .has-tooltip::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-4px);
+      background: rgba(10, 15, 25, 0.92);
+      color: #fff;
+      font-family: 'Mozilla Text', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      white-space: nowrap;
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      z-index: 200;
+    }
+
+    .has-tooltip:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ─── ICON BUTTONS ─── */
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: #EAEFF1;
+      border: 1px solid #C0C7CD;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s;
+      flex-shrink: 0;
+    }
+
+    .icon-btn:hover {
+      opacity: 0.88;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    .icon-btn svg { width: 18px; height: 18px; }
+
+    /* copied flash */
+    .icon-btn.copied {
+      background: #e8f5e9;
+      border-color: #a5d6a7;
+    }
+
+    /* ─── RESUME BUTTON ─── */
+    .resume-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 151px;
+      height: 40px;
+      border-radius: 12px;
+      background: #FFC107;
+      border: none;
+      font-family: 'Mozilla Text', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1C2B40;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s;
+      text-decoration: none;
+    }
+
+    .resume-btn:hover {
+      opacity: 0.92;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+    }
+
+    .resume-icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 48px 294px 0;
+      display: grid;
+      grid-template-columns: 460px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .hero-heading {
+      font-family: 'Mozilla Headline', serif;
+      font-size: 42px;
+      font-weight: 400;
+      line-height: 1.24;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-bio { padding-top: 8px; }
+
+    .hero-bio ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hero-bio li {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.78);
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .hero-bio li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    @keyframes ux-glow {
+      0%, 100% { color: rgba(255,255,255,0.92); text-shadow: none; }
+      40%, 60% { color: #FFC107; text-shadow: 0 0 22px rgba(255,193,7,0.5), 0 0 44px rgba(255,193,7,0.2); }
+    }
+
+    .ux-highlight {
+      display: inline;
+      animation: ux-glow 4s ease-in-out 1s infinite;
+    }
+
+    /* ─── HERO FEATURED CARD ─── */
+    .hero-card {
+      max-width: 1440px;
+      margin: 48px auto 0;
+      padding: 0 294px;
+    }
+
+    .hero-card-inner {
+      background: #FEF7FF;
+      border: 1px solid #CAC4D0;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      min-height: 300px;
+      cursor: pointer;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .hero-card-inner:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 56px rgba(0, 0, 0, 0.28);
+    }
+
+    .hero-card-img {
+      width: 46%;
+      object-fit: cover;
+      display: block;
+      flex-shrink: 0;
+      transition: transform 0.4s ease;
+    }
+
+    .hero-card-inner:hover .hero-card-img {
+      transform: scale(1.03);
+    }
+
+    .hero-card-content {
+      flex: 1;
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-card-role {
+      font-family: 'Mozilla Text', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: #49454F;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+
+    .hero-card-title {
+      font-family: 'Mozilla Headline', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: #1D1B20;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .hero-card-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .hero-card-tag {
+      font-family: 'Mozilla Text', sans-serif;
+      font-size: 11px;
+      color: #49454F;
+      border: 1px solid #CAC4D0;
+      border-radius: 20px;
+      padding: 4px 14px;
+    }
+
+    .hero-card-desc {
+      font-family: 'Mozilla Text', sans-serif;
+      font-size: 13.5px;
+      color: #49454F;
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 24px;
+    }
+
+    .hero-card-cta {
+      align-self: flex-end;
+      height: 38px;
+      padding: 0 22px;
+      border-radius: 20px;
+      background: #FFC107;
+      font-family: 'Mozilla Text', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1C2B40;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: opacity 0.15s, box-shadow 0.15s;
+    }
+
+    .hero-card-cta:hover {
+      opacity: 0.9;
+      box-shadow: 0 4px 14px rgba(255, 193, 7, 0.45);
+    }
+
+    /* ─── SECTION SHARED ─── */
+    .section {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 72px 294px 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-family: 'Mozilla Headline', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+
+    .section-nav { display: flex; gap: 8px; }
+
+    .nav-sq {
+      width: 28px;
+      height: 28px;
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .nav-sq:hover { background: rgba(255, 255, 255, 0.14); }
+    .nav-sq svg { width: 13px; height: 13px; color: rgba(255, 255, 255, 0.7); }
+
+    /* ─── YOUTUBE VIDEOS ─── */
+    .video-scroll {
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+
+    .video-scroll::-webkit-scrollbar { display: none; }
+
+    .video-row { display: flex; gap: 16px; width: max-content; }
+
+    .video-wrap {
+      width: 400px;
+      flex-shrink: 0;
+      transition: transform 0.22s ease;
+    }
+
+    .video-wrap:hover { transform: translateY(-4px); }
+
+    .video-embed {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+      transition: box-shadow 0.22s ease;
+    }
+
+    .video-wrap:hover .video-embed {
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.55);
+    }
+
+    .video-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ─── PRODUCTION CARDS ─── */
+    .prod-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .prod-card {
+      background: #FEF7FF;
+      border: 1px solid #CAC4D0;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .prod-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.22);
+    }
+
+    .prod-card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      background: #ECE6F0;
+      transition: transform 0.4s ease;
+    }
+
+    .prod-card:hover .prod-card-img {
+      transform: scale(1.04);
+    }
+
+    .prod-card-body {
+      padding: 22px 22px 64px;
+      flex: 1;
+    }
+
+    .prod-card-title {
+      font-family: 'Mozilla Headline', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1D1B20;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .prod-card-tags {
+      font-size: 11px;
+      font-weight: 500;
+      color: #49454F;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .prod-card-desc {
+      font-size: 13px;
+      font-weight: 400;
+      color: #49454F;
+      line-height: 1.65;
+    }
+
+    .prod-card-cta {
+      position: absolute;
+      bottom: 18px;
+      right: 18px;
+      height: 38px;
+      padding: 0 20px;
+      border-radius: 20px;
+      background: #FFC107;
+      border: none;
+      font-family: 'Mozilla Text', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1C2B40;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: opacity 0.15s, box-shadow 0.15s;
+    }
+
+    .prod-card-cta:hover {
+      opacity: 0.9;
+      box-shadow: 0 4px 14px rgba(255, 193, 7, 0.4);
+    }
+
+    /* ─── VIEW MORE ─── */
+    .view-more-row {
+      margin-top: 36px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .view-more-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      font-family: 'Mozilla Text', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s, border-color 0.18s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .view-more-toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.11);
+      color: rgba(255, 255, 255, 0.9);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .view-more-toggle-btn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.22s ease;
+      flex-shrink: 0;
+    }
+
+    .view-more-toggle-btn.open svg {
+      transform: rotate(180deg);
+    }
+
+    .view-more-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .view-more-cards {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .view-more-cards.open {
+      display: grid;
+    }
+
+    /* ─── RESEARCH INTERESTS ─── */
+    .research-section {
+      max-width: 1440px;
+      margin: 72px auto 0;
+      padding: 72px 294px 0;
+    }
+
+    .research-title {
+      font-family: 'Mozilla Headline', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.9);
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .research-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 14px;
+      padding: 24px 22px;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .research-item:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(255, 255, 255, 0.16);
+      transform: translateY(-3px);
+    }
+
+    .research-num {
+      font-family: 'Mozilla Headline', serif;
+      font-size: 11px;
+      font-weight: 400;
+      color: #FFC107;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .research-item p {
+      font-family: 'Mozilla Text', sans-serif;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.78);
+      line-height: 1.65;
+    }
+
+    /* ─── CONTACT ─── */
+    .contact-section {
+      max-width: 1440px;
+      margin: 72px auto 0;
+      padding: 72px 294px 80px;
+    }
+
+    .contact-title {
+      font-family: 'Mozilla Headline', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+
+    .contact-text {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.65;
+      max-width: 540px;
+      margin-bottom: 28px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-links p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .contact-links strong {
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.5);
+      margin-right: 8px;
+    }
+
+    .contact-links a {
+      color: #FFC107;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* ─── RESPONSIVE ─── */
+
+    /* Tablet: 768px–1100px */
+    @media (max-width: 1100px) {
+      .header {
+        padding: 40px 48px 0;
+        height: auto;
+        padding-bottom: 24px;
+      }
+
+      .hero {
+        padding: 40px 48px 0;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .hero-card { padding: 0 48px; }
+
+      .section { padding: 56px 48px 0; }
+      .research-section { padding: 56px 48px 0; }
+      .contact-section { padding: 56px 48px 64px; }
+
+      .video-wrap { width: 340px; }
+
+      .research-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* Mobile: ≤767px */
+    @media (max-width: 767px) {
+      /* Header */
+      .header {
+        padding: 24px 20px;
+        height: auto;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .site-name { font-size: 20px; }
+
+      .header-right { gap: 10px; }
+
+      .resume-btn { width: 130px; font-size: 13px; }
+
+      /* Hero */
+      .hero {
+        padding: 32px 20px 0;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .hero-heading { font-size: 30px; }
+
+      /* Hero card */
+      .hero-card { padding: 0 20px; margin-top: 28px; }
+
+      .hero-card-inner {
+        flex-direction: column;
+        min-height: auto;
+      }
+
+      .hero-card-img {
+        width: 100%;
+        height: 200px;
+      }
+
+      .hero-card-content { padding: 22px 20px; }
+
+      .hero-card-title { font-size: 18px; }
+
+      /* Sections */
+      .section { padding: 48px 20px 0; }
+      .section-title { font-size: 18px; }
+
+      /* Videos */
+      .video-wrap { width: 280px; }
+
+      /* Production cards */
+      .prod-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .prod-card-img { height: 180px; }
+
+      /* View more */
+      .view-more-cards {
+        grid-template-columns: 1fr;
+      }
+
+      /* Research */
+      .research-section {
+        margin-top: 48px;
+        padding: 48px 20px 0;
+      }
+
+      .research-title { font-size: 18px; }
+
+      .research-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      /* Contact */
+      .contact-section {
+        margin-top: 48px;
+        padding: 48px 20px 64px;
+      }
+
+      .contact-title { font-size: 22px; }
+
+      /* Tooltips: show above on mobile to avoid going off-screen */
+      .has-tooltip::after {
+        top: auto;
+        bottom: calc(100% + 10px);
+        font-size: 10px;
+        padding: 5px 10px;
+      }
+    }
+
+    /* Small phones: ≤375px */
+    @media (max-width: 375px) {
+      .hero-heading { font-size: 26px; }
+      .video-wrap { width: 240px; }
+      .resume-btn { width: 120px; font-size: 12px; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── HEADER ─── -->
+  <header class="header">
+    <span class="site-name">Pranoy Guduru</span>
+    <div class="header-right">
+
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/gpranoy/" target="_blank"
+         class="icon-btn has-tooltip" data-tooltip="LinkedIn" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="#546E7A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="2" y="9" width="4" height="13" stroke="#546E7A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="4" cy="4" r="2" stroke="#546E7A" stroke-width="1.8"/>
+        </svg>
+      </a>
+
+      <!-- Phone — copy to clipboard -->
+      <button class="icon-btn has-tooltip" aria-label="Copy phone number"
+              data-tooltip="Copy phone number"
+              data-copy="+91 9558677817"
+              onclick="copyItem(event, this)">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z" stroke="#546E7A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <!-- Email — copy to clipboard -->
+      <button class="icon-btn has-tooltip" aria-label="Copy email address"
+              data-tooltip="Copy email"
+              data-copy="gpranoy@gmail.com"
+              onclick="copyItem(event, this)">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="4" width="20" height="16" rx="2" stroke="#546E7A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22 7l-10 7L2 7" stroke="#546E7A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <!-- View Resume -->
+      <a href="Pranoy Guduru/pranoy_cv_May2022.pdf" target="_blank"
+         class="resume-btn has-tooltip" data-tooltip="Download PDF">
+        <svg class="resume-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#1C2B40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="14 2 14 8 20 8" stroke="#1C2B40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="16" y1="13" x2="8" y2="13" stroke="#1C2B40" stroke-width="2" stroke-linecap="round"/>
+          <line x1="16" y1="17" x2="8" y2="17" stroke="#1C2B40" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        View Resume
+      </a>
+    </div>
+  </header>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <h1 class="hero-heading">
+      I craft digital experiences, mindful of the customer journey; with care.
+    </h1>
+    <div class="hero-bio">
+      <ul>
+        <li>I have 7y experience as a <strong class="ux-highlight" style="font-weight:600;">UX Designer &amp; Researcher</strong> working with early stage startups and global product teams in agile settings</li>
+        <li>I'm lucky to graduate with a masters in New Media design from NID, India</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ─── HERO FEATURED CARD ─── -->
+  <div class="hero-card">
+    <div class="hero-card-inner" data-href="Pranoy Guduru/Bringing clarity into complex cyber-security workf 17503b2829b78025b71dfbe4392ac0f0.html">
+      <img class="hero-card-img" src="Pranoy Guduru/image.png" alt="Indusface cybersecurity dashboard" />
+      <div class="hero-card-content">
+        <p class="hero-card-role">Lead UX Designer</p>
+        <h2 class="hero-card-title">Bringing clarity into complex cybersecurity workflows</h2>
+        <div class="hero-card-tags">
+          <span class="hero-card-tag">Wireframing</span>
+          <span class="hero-card-tag">User-testing</span>
+        </div>
+        <p class="hero-card-desc">I've worked with UX Researchers &amp; PMs to re-align a cybersecurity app in line with the user's mental model, needs and expectations</p>
+        <a href="Pranoy Guduru/Bringing clarity into complex cyber-security workf 17503b2829b78025b71dfbe4392ac0f0.html" class="hero-card-cta">View Project</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── SOME EXPLORATORY WORK ─── -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Some exploratory work</h2>
+      <div class="section-nav">
+        <button class="nav-sq" aria-label="Previous" onclick="scrollVideos(-1)">
+          <svg viewBox="0 0 14 14" fill="none">
+            <path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="nav-sq" aria-label="Next" onclick="scrollVideos(1)">
+          <svg viewBox="0 0 14 14" fill="none">
+            <path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="video-scroll" id="video-carousel">
+      <div class="video-row">
+        <div class="video-wrap">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/jmdx9qJ1h3I" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="video-wrap">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/aAfTNMDl_fI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="video-wrap">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/0h6bn2Y1a6Y" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="video-wrap">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/2TINGxqZyXg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="video-wrap">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/0FdZxyOX4tc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WORKS IN UX DESIGN & RESEARCH ─── -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Works in UX Design &amp; Research</h2>
+      <div class="section-nav">
+        <button class="nav-sq" aria-label="Previous">
+          <svg viewBox="0 0 14 14" fill="none">
+            <path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="nav-sq" aria-label="Next">
+          <svg viewBox="0 0 14 14" fill="none">
+            <path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="prod-grid">
+
+      <!-- Helpshift -->
+      <div class="prod-card" data-href="Pranoy Guduru/UX for ML Workflows - Helpshift 031790b414c8481998aa541bc089633c.html">
+        <img class="prod-card-img" src="Pranoy Guduru/Untitled.png" alt="UX for ML Workflows - Helpshift" />
+        <div class="prod-card-body">
+          <p class="prod-card-title">UX for ML Workflows — Helpshift</p>
+          <p class="prod-card-tags">UX Flows · Wireframes &amp; Prototyping · User Testing</p>
+          <p class="prod-card-desc">I was part of the AI-triad at the company, where I've designed ML based workflows and interfaces for the customer support platform.</p>
+        </div>
+        <a href="Pranoy Guduru/UX for ML Workflows - Helpshift 031790b414c8481998aa541bc089633c.html" class="prod-card-cta">View →</a>
+      </div>
+
+      <!-- Sulekha -->
+      <div class="prod-card" data-href="Pranoy Guduru/Designing course discovery experience - Sulekha e- 2eb9be9dd0ec48508ea1aa0a5a9d8c38.html">
+        <img class="prod-card-img" src="Pranoy Guduru/Untitled 1.png" alt="Sulekha course discovery experience" />
+        <div class="prod-card-body">
+          <p class="prod-card-title">Designing course discovery experience — Sulekha e-learn</p>
+          <p class="prod-card-tags">User Research · UX · Wireframes &amp; Prototyping · User Testing</p>
+          <p class="prod-card-desc">Sulekha - elearn / Capshine — Designing the course discovery &amp; selection experience for an online live learning platform.</p>
+        </div>
+        <a href="Pranoy Guduru/Designing course discovery experience - Sulekha e- 2eb9be9dd0ec48508ea1aa0a5a9d8c38.html" class="prod-card-cta">View →</a>
+      </div>
+
+    </div>
+
+    <!-- View More toggle -->
+    <div class="view-more-row">
+      <button class="view-more-toggle-btn" id="view-more-btn" onclick="toggleViewMore()">
+        View more projects
+        <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <span class="view-more-line"></span>
+    </div>
+
+    <div class="view-more-cards" id="view-more-cards">
+
+      <!-- Discursive & Speculative Design -->
+      <div class="prod-card" data-href="Pranoy Guduru/Discursive &amp; Speculative Design 6070ea4995f746ae9f99f2145cfa8a5d.html">
+        <div class="prod-card-body">
+          <p class="prod-card-title">Discursive &amp; Speculative Design</p>
+          <p class="prod-card-tags">Speculative Design · Critical Practice</p>
+          <p class="prod-card-desc">Can design be provocative, get us to think about where we are and heading, to aid collective decision making?</p>
+        </div>
+        <a href="Pranoy Guduru/Discursive &amp; Speculative Design 6070ea4995f746ae9f99f2145cfa8a5d.html" class="prod-card-cta">View →</a>
+      </div>
+
+      <!-- Experimental Interfaces -->
+      <div class="prod-card" data-href="Pranoy Guduru/Experimental interfaces 2997755aba5b49adb494c97ae4c08133.html">
+        <div class="prod-card-body">
+          <p class="prod-card-title">Experimental Interfaces</p>
+          <p class="prod-card-tags">Interaction Design · Prototyping</p>
+          <p class="prod-card-desc">A collection of interfaces and interactions I've liked building, but couldn't see the light of the day because of various constraints.</p>
+        </div>
+        <a href="Pranoy Guduru/Experimental interfaces 2997755aba5b49adb494c97ae4c08133.html" class="prod-card-cta">View →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── RESEARCH INTERESTS ─── -->
+  <section class="research-section">
+    <h3 class="research-title">Research &amp; practice interests</h3>
+    <div class="research-grid">
+
+      <div class="research-item">
+        <span class="research-num">01</span>
+        <p>Politics of design &amp; technology.</p>
+      </div>
+
+      <div class="research-item">
+        <span class="research-num">02</span>
+        <p>Participative design; Design with democratic values; Design Justice.</p>
+      </div>
+
+      <div class="research-item">
+        <span class="research-num">03</span>
+        <p>Civic-Tech, Open source, Ethical &amp; Value driven tech.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ─── -->
+  <section class="contact-section">
+    <h2 class="contact-title">👋🏽 Get in touch</h2>
+    <p class="contact-text">Are you making something that improves civic discourse, helps kids discover comets or anything else? Please ping me!</p>
+    <div class="contact-links">
+      <p>
+        <strong>mail</strong>
+        <a href="mailto:pranoy_g@alumni.nid.edu">pranoy_g@alumni.nid.edu</a>
+        &nbsp;·&nbsp;
+        <a href="mailto:gpranoy@gmail.com">gpranoy@gmail.com</a>
+      </p>
+      <p>
+        <strong>LinkedIn</strong>
+        <a href="https://www.linkedin.com/in/gpranoy/" target="_blank">linkedin.com/in/gpranoy</a>
+      </p>
+    </div>
+  </section>
+
+  <script>
+    /* ── Video carousel ── */
+    function scrollVideos(dir) {
+      var el = document.getElementById('video-carousel');
+      el.scrollBy({ left: dir * 416, behavior: 'smooth' });
+    }
+
+    /* ── Copy to clipboard ── */
+    function copyItem(event, el) {
+      event.preventDefault();
+      const text = el.dataset.copy;
+      if (!text) return;
+
+      navigator.clipboard.writeText(text).then(() => {
+        const original = el.dataset.tooltip;
+        el.dataset.tooltip = 'Copied: ' + text;
+        el.classList.add('copied');
+        setTimeout(() => {
+          el.dataset.tooltip = original;
+          el.classList.remove('copied');
+        }, 2200);
+      }).catch(() => {
+        el.dataset.tooltip = 'Copy failed';
+        setTimeout(() => { el.dataset.tooltip = el.dataset.copy ? 'Copy ' + (el.getAttribute('aria-label') || '') : el.dataset.tooltip; }, 1500);
+      });
+    }
+
+    /* ── View more toggle ── */
+    function toggleViewMore() {
+      const cards = document.getElementById('view-more-cards');
+      const btn = document.getElementById('view-more-btn');
+      const isOpen = cards.classList.contains('open');
+
+      if (isOpen) {
+        cards.classList.remove('open');
+        btn.classList.remove('open');
+        btn.childNodes[0].textContent = 'View more projects';
+      } else {
+        cards.classList.add('open');
+        btn.classList.add('open');
+        btn.childNodes[0].textContent = 'View less';
+        cards.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    /* ── Make entire card clickable ── */
+    document.querySelectorAll('[data-href]').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a, button')) return;
+        window.location.href = card.dataset.href;
+      });
+    });
+  </script>
+
+</body>
+</html>

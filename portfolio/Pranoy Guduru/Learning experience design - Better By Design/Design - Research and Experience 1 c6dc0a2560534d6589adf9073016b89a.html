@@ -1,0 +1,769 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Design - Research and Experience 1</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c6dc0a25-6053-4d65-89ad-f9073016b89a" class="page sans"><header><h1 class="page-title" dir="auto">Design - Research and Experience 1</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="6da3cf3b-249a-4532-9af8-fc8c932ab4d0" class="">Pranoy Guduru</p></div><div style="display:contents" dir="auto"><p id="d613d9ed-6b4f-4093-a60a-f43d486d321e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="357c6edc-7b2c-4fa9-b934-bcd17425af13" class=""><strong>Objective. </strong>Building an engaging and immersive experience for the students; encouraging ideas around creative exploration and expression.</p></div><div style="display:contents" dir="auto"><p id="12ae50cb-8f9c-4b99-8c85-608a8ba11340" class=""><strong>Directions to explore. </strong>Learn what makes games immersive for kids. Community building, the systems to be in place for them to thrive. For Classroom programs and Online Experience.</p></div><div style="display:contents" dir="auto"><p id="254b65ce-983d-47e7-93bf-2fdb55e90678" class=""><strong>like a Game. </strong>Students are taken into a narrative and play a role in it. The roles they play require them to embody certain mindsets and learn skills.</p></div><div style="display:contents" dir="auto"><p id="c9d74709-ac64-4b06-86cc-982755603c39" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="fc345f20-b32e-4eaf-b9d1-cc4febaf64cf"/></div><div style="display:contents" dir="auto"><p id="1abd0b8d-0192-41e7-a237-af5d603e28ab" class="">
+</p></div><div style="display:contents" dir="auto"><p id="6b2f73e9-f43f-4356-a423-89af6b2a8750" class=""><a href="http://betterbydesign.in/"><strong>Better By Design</strong></a> is a startup based in Hyderabad that crafts experiences for Kids (grades 6-10) that help them build and sustain their creative confidence. Through Maker-spaces, Workshops &amp; Camps, Classroom programs, online idea sharing portal, tools for tinkering; We think of ways to help kids enter and dive into the world of making and design.</p></div><div style="display:contents" dir="auto"><p id="a7f28362-d484-4e1c-9e8d-0043938dd0c2" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="ed0642ab-6c71-45e8-b560-c10372641baa"/></div><div style="display:contents" dir="auto"><h2 id="47d65f8d-3472-4e08-b042-4ebc266d3d0c" class="">Research</h2></div><div style="display:contents" dir="auto"><p id="1067281c-403b-49f3-ac52-229ee8544ca8" class="">My main concerns were in understanding, ideating and crafting the experiences. It involved reading into various research papers and books on Serious Games, etc. Then discussing with the team and prototype them.</p></div><div style="display:contents" dir="auto"><p id="45744d5d-ccf1-438f-aa41-220ce0298a9e" class=""><strong>Serious Games</strong> - Using MDAO framework for designing experiences for behavior change. (<a href="https://www.researchgate.net/publication/298083745_Guidelines_for_designing_effective_games_as_clinical_interventions_Mechanics_dynamics_aesthetics_and_outcomes_MDAO_framework">Paper)</a></p></div><div style="display:contents" dir="auto"><p id="8a3d64bf-7c6f-418c-84e4-b10ba79cd3e7" class=""><strong>Learning through Play &amp; Community Building</strong> - <a href="https://learn.media.mit.edu/lcl/">Learning Creative Learning,</a> Lifelong Kindergarten MIT Media Labs - Creative Society</p></div><div style="display:contents" dir="auto"><p id="5f749373-0117-4c4b-9be8-8223778589e8" class=""><strong>Designing for Immersion</strong> - <a href="https://www.goodreads.com/book/show/66354.Flow">Flow</a>, Mihaly Csikszentmihaly</p></div><div style="display:contents" dir="auto"><p id="eda1badc-72ed-4a49-99e5-8454af7168fc" class=""><strong>Narrative Design</strong> - Metaphors we live by,</p></div><div style="display:contents" dir="auto"><p id="082ba3b1-12ba-4ea4-afc1-045fb073444c" class="">We followed an iterative and an incremental design process. We would build simple prototypes and try it with an audience, evaluate and improve the design.</p></div><div style="display:contents" dir="auto"><p id="ffbd9b1b-5a9d-4d95-b27f-3b301f764550" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="c4db6662-d26b-4789-b9a8-a17b3c735b32"/></div><div style="display:contents" dir="auto"><h2 id="94af9f20-5976-4b61-aa18-a8a1ef24cafa" class="">Designing Classroom Experiences</h2></div><div style="display:contents" dir="auto"><p id="a948a0ee-9509-4dd1-ab4a-58cabcbf83a7" class="">
+</p></div><div style="display:contents" dir="auto"><p id="fd85f970-3549-4a14-8916-7be0926e026e" class=""><strong>Setting, </strong>Kids (Grades 6th to 10th) subscribe to our program in their school. The sessions are delivered as after-school programs in their schools. Mentors from our company would host the experience at the school. The experience was successfully implemented in 2 international schools in Hyderabad for around 100+ kids.</p></div><div style="display:contents" dir="auto"><p id="59944255-22f3-41a4-a485-c2dd3b643b2b" class="">
+</p></div><div style="display:contents" dir="auto"><p id="9f965620-c1f0-4d51-af92-9e4fc205f8f8" class=""><strong>Learning experiences</strong></p></div><div style="display:contents" dir="ltr"><figure id="7657bd69-64f5-494f-ab09-70acb83035ce" class="image"><a href="https://paper-attachments.dropbox.com/s_6DFC937055A9F7B0EC3E61A90674241493FFF400A4B16D5C091C0C3F3793CED2_1568357672428_portal_banner.jpg"><img src="https://paper-attachments.dropbox.com/s_6DFC937055A9F7B0EC3E61A90674241493FFF400A4B16D5C091C0C3F3793CED2_1568357672428_portal_banner.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="691a58f1-42cc-47d9-b201-e33387aedc8c" class=""><strong>Alivers - A Quest in Realising the Aarx</strong> is a survival role playing game. It has making challenges that kids take up and earn Aarx that help them stay immune from the widespread virus.</p></div><div style="display:contents" dir="auto"><p id="087dfe03-96e2-4216-bfd3-c18f2436eeed" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="be4e08ed-ce73-4c0e-b0ec-31d2f67f8687" class="bulleted-list"><li style="list-style-type:disc">The classroom sessions are like a game, hosted by our mentor (who plays a role in the narrative world). The once-a-week classroom sessions would have making exercises and projects  as challenges in the game.<div style="display:contents" dir="auto"><p id="a40d47af-1137-4e40-bbba-9e599720f340" class="">
+</p></div></li></ul></div><div style="display:contents" dir="auto"><p id="48a7f1dd-148c-456f-b90a-82b2d2f5d025" class=""><strong>Classrooms as Storytelling mediums</strong></p></div><div style="display:contents" dir="auto"><p id="583fbdee-e9c1-446a-bbf8-f7a68cffb175" class="">I used this lens while crafting experiences for classrooms. As though I’m telling them a story in a classroom setting. The challenge was to understand the grammar and the things that are unique and work well for the medium.</p></div><div style="display:contents" dir="auto"><p id="8afc4c35-c690-42fa-8b8f-6f06dee2b5eb" class="">Teacher/Student. Flow of Dialogue, Conversational, Relevance to a person’s setting.</p></div><div style="display:contents" dir="auto"><p id="8132faea-579c-45f0-8024-eee7a19c74d9" class="">Oral Storytelling / Interactive / Improv -</p></div><div style="display:contents" dir="auto"><ul id="3676b46f-3ee1-479a-827a-27863ae688b1" class="bulleted-list"><li style="list-style-type:disc">Interaction with the audience. Dialogue between storyteller and audience. that dialogue can flow in any way.</li></ul></div><div style="display:contents" dir="auto"><p id="71d81cb2-7fdd-428b-97b6-177a9fc008ab" class="">Audio/Visuals - Videos, Podcasts.</p></div><div style="display:contents" dir="auto"><p id="9cdbdd2b-0347-44b3-8325-d9cb27f5044f" class="">Activities - Puzzles -</p></div><div style="display:contents" dir="auto"><ul id="67d688f9-73c8-4c08-9f00-09116ce98c1a" class="bulleted-list"><li style="list-style-type:disc">Activities that embody the story being told.</li></ul></div><div style="display:contents" dir="auto"><p id="9fcb0f59-b564-4f34-89eb-0cd7a905d795" class="">Challenges - Hidden Innovation Challenge.</p></div><div style="display:contents" dir="auto"><p id="fb2afa82-6a0f-4269-8463-0080e990027f" class=""><strong>Fictional Props</strong> that make the world more believable. We designed a band that holds the Aarx.</p></div><div style="display:contents" dir="auto"><p id="fadcc045-c321-4b5f-af89-4b3848dea908" class="">Online Experience - A forum where kids can .</p></div><div style="display:contents" dir="auto"><p id="ddd6065a-6b85-4816-92f7-4e26cab2e853" class="">
+</p></div><div style="display:contents" dir="auto"><p id="3c0b103f-22ce-4883-9eef-2d945d91015e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="d8f5653e-4c7d-47c5-b2ef-7415dfa703a2" class=""><strong>World Building for Alivers</strong></p></div><div style="display:contents" dir="auto"><p id="ae2effe3-50ba-4be4-837a-6386d46e2522" class="">
+</p></div><div style="display:contents" dir="auto"><p id="b191d882-c6df-4e3d-a6fd-2cee8f4a76b0" class=""><a href="https://paper.dropbox.com/doc/LIPfVDELe9JIU7RxiQKcP">+a story about the story.</a> The process and the decisions are detailed out in the doc.</p></div><div style="display:contents" dir="auto"><p id="f475933f-8ff1-4bd8-bcec-b1301d79a450" class="">A narrative world was built and slowly revealed as a narrative for the kids. Alivers, Aarx, Wizards, Hoarders, Zombies were some of the characters embodying ideas in the story.</p></div><div style="display:contents" dir="auto"><p id="51754563-230e-4e5e-9e44-2ae976959e32" class=""><strong>The Alivers Manifesto</strong></p></div><div style="display:contents" dir="auto"><p id="fed0786d-78c5-469d-a57c-672c9eeebe7c" class=""><a href="https://www.dropbox.com/s/1mu8hz83stukd8g/aliversmanifesto_MakersFaire.pdf?dl=0">https://www.dropbox.com/s/1mu8hz83stukd8g/aliversmanifesto_MakersFaire.pdf?dl=0</a></p></div><div style="display:contents" dir="auto"><p id="cff78bbc-6f45-4669-82d9-14ee989fa4bb" class="">
+</p></div><div style="display:contents" dir="auto"><p id="f9a40946-7fff-4a11-b42c-759ddf7a6bb2" class=""><strong>Creative Writing</strong></p></div><div style="display:contents" dir="auto"><p id="5bd5fc23-45b4-4473-86d8-aef23dfadb7f" class="">This is a story I wrote for one of the challenges. It serves as a subtext or “Why” are we doing this activity..</p></div><div style="display:contents" dir="auto"><hr id="8f8aa912-9b53-416f-9cd9-8a937761e17a"/></div><div style="display:contents" dir="auto"><p id="d9e4a0c9-5921-42e7-a443-20dd398ab344" class="">
+</p></div><div style="display:contents" dir="auto"><p id="d92fc855-0594-44ca-80f2-fa3d0fe1e75b" class=""><strong>Chapter 3, Intro to wacky inventions</strong></p></div><div style="display:contents" dir="auto"><p id="22af46d3-c075-4491-b9cc-3febcee14aaf" class="">It was a no-moon night and I heard that the stars were to have a party! I stepped out with my bicycle. I cycled down the street. To look at the stars, I looked up at the sky. But, There was a huge board blocking my view. I cycled ahead. There was another one bigger than the previous one. Ironically, This one had blinding lights. You were to see only it and nothing else when around it. A zombie was hypnotized by it. It was drooling, looking at the things on the board. The board had a drawing of a huge bucket and said that the zombie had to have it. I took a turn on the next junction. The whole street, wherever my eyes wanted to rest was kicked by a board with blinding lights with bucket drawings.</p></div><div style="display:contents" dir="auto"><p id="d5be98ce-330c-4c82-a14c-030a08d307fe" class="">
+</p></div><div style="display:contents" dir="auto"><p id="ced855ec-3179-40de-9b47-7513574895a6" class="">There was a huge mob of zombies in front of a multi-mega-super-hyper-bucket store blocking the whole street. The zombies already had multiple buckets on their heads and if you ask me, they were fine. This new bucket, the one on the boards was nothing new. It was the same thing. But, the zombies were already hypnotized. They had no escape. Wherever they could look, they would see the bucket drawings. On the road, on their mobile screens, in their films, in the news and even in their dreams. I learnt that evening that they were not deprived of dreaming, The boards hijacked them. The zombies in front of the shop wouldn’t stop at anything, fight their way for the bucket. The vehicles on the street were in a fix. I could escape and I made my way into a small lane where there were no lights but my bicycle’s dynamo. I was relieved. I could finally choose what to see. I wanted to look at the stars but the smoke from the cars put everything out of sight.</p></div><div style="display:contents" dir="auto"><p id="5d23a459-4d3d-4d05-90b5-128b4c23f0fb" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2c8700b1-9705-411a-8c09-4fef902bf5e8" class="">I followed a zombie to see what those buckets were for. Apparently, they don’t like other shapes than the ones their buckets could hold. They would beat down glorious shapes and fit them in their buckets.</p></div><div style="display:contents" dir="auto"><p id="96527caa-ba60-49af-8392-41b5626aa5ec" class="">
+</p></div><div style="display:contents" dir="auto"><p id="e3dd75dd-5dd7-42bc-b0d9-0213eb6da75d" class="">It is observed that participating in mindless consumption, humans were becoming zombies. The products were designed for easy consumption and lauded their laziness. Their designs were working, many were losing their ability to imagine and create.</p></div><div style="display:contents" dir="auto"><p id="6713c108-727f-4231-bd27-d946f3a1e1de" class="">
+</p></div><div style="display:contents" dir="auto"><p id="55b5590e-3d2c-447d-ba20-b3fc209a03f2" class="">To stand-up and revolt against this, <strong>Today we’ll come up with the most wackiest inventions we could dream up!</strong></p></div><div style="display:contents" dir="auto"><p id="a5576882-197c-42f0-9d93-8c93264bcd29" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="17194f88-2ab7-48b1-83e0-55c4f2a0152e"/></div><div style="display:contents" dir="auto"><p id="fc872f0b-092d-4772-b47c-99e53c1e0e52" class="">
+</p></div><div style="display:contents" dir="auto"><p id="9065decd-19fc-4afd-a8ad-eb5f21991bb8" class="">
+</p></div><div style="display:contents" dir="auto"><p id="ecab26dc-9e3d-4415-8c74-48b639d1d882" class=""><strong>Adapting for Classroom.</strong></p></div><div style="display:contents" dir="auto"><p id="b89bd794-97d1-49c5-9577-571d11d1dd68" class="">I would write down the main ideas in the form of a story/narrative. This we’d adapt for a classroom setting.</p></div><div style="display:contents" dir="auto"><p id="38d5f766-482a-4303-ad01-efd347f8f538" class="">For example, I wrote this for the introductory classes.</p></div><div style="display:contents" dir="auto"><p id="73c01c72-f6fd-4ab1-b1af-4c2361019294" class=""><div class="indented"><div style="display:contents" dir="auto"><p id="01332379-5ed8-40a2-ad32-88068594bb08" class=""><strong>We were all superheroes.</strong> We could parkour, dance all night, build bridges across seas. A spider didn’t have to bite me so that I could become someone special. I didn’t have to be born in a certain community or in an alien land. As I said, we were all superheroes. We could make things that could let us swim with the mighty blue whales, swing a few satellites onto passing comets.</p></div><div style="display:contents" dir="auto"><p id="fdd8726b-49d0-4ea1-81b7-9ae0da8b26ff" class="">
+</p></div></div></p></div><div style="display:contents" dir="auto"><p id="75b99aea-c437-4964-9a92-3acdd5cfd6b6" class="">The main idea was to tell kids that Creative abilities are human superpowers. Give them the confidence to try out..</p></div><div style="display:contents" dir="auto"><p id="653df8e5-d275-4312-a392-145464352390" class="">
+</p></div><div style="display:contents" dir="auto"><p id="96527073-e4e2-4b48-b698-b7b46a76be51" class="">This one we made a Guessing Game, where kids would be asked about superheroes who could swim with whales or go as fast as sound. The answers were generally around fictional characters, but the punchline for the story drops it as human creative ability.</p></div><div style="display:contents" dir="auto"><p id="d8bbb6d5-3b52-43a6-93ec-f2dde0fdb83a" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="af4de864-c00a-496d-85d0-29c658d65180" class="image"><a href="https://paper-attachments.dropbox.com/s_C92D2B786D98A36D2F7C8BDCD930E5CE1E92236A558D730D3C35967E6AAE7C8A_1534490845549_Screen+Shot+2018-08-17+at+12.55.54+PM.png"><img src="https://paper-attachments.dropbox.com/s_C92D2B786D98A36D2F7C8BDCD930E5CE1E92236A558D730D3C35967E6AAE7C8A_1534490845549_Screen+Shot+2018-08-17+at+12.55.54+PM.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="dad2da1c-5e9a-46e0-96c4-54b6e3f9f0b3" class=""><a href="https://www.dropbox.com/s/qsslgv8t0whax8b/journey.ai?dl=0">https://www.dropbox.com/s/qsslgv8t0whax8b/journey.ai?dl=0</a></p></div><div style="display:contents" dir="auto"><h2 id="5a734ebc-78ff-45d3-9735-eff0d368bc60" class="">Maker Faire Hyderabad. 2018</h2></div><div style="display:contents" dir="auto"><p id="80896961-21ac-48a7-b32b-8d5314919f21" class="">Better By Design designed and executed the Kids Experience for MakerFaire Hyderabad, 2018. My contributions to the project included in the concept design and strategy for the exhibitions, events and workshops.</p></div><div style="display:contents" dir="auto"><p id="7330bb07-f9b6-491c-a17f-2038e9f30d7f" class="">
+</p></div><div style="display:contents" dir="auto"><p id="425b093a-df20-4a0b-a926-cd2f137394d3" class=""><strong>Alivers’ Metropolis</strong></p></div><div style="display:contents" dir="auto"><p id="c79e02c2-8544-4ccb-934b-3d2a4899cadc" class="">The exhibition space was to evoke and transport kids and parents to a world full of ideas. Extending the world of Alivers, We chose the metaphor of Alivers Metropolis. A city built by and for Alivers. The space showcased kids’ projects from Telangana and Andhra Pradesh. It had spaces where kids could get a peek into to aspects of design, creative thinking and making through activities and workshops.</p></div><div style="display:contents" dir="auto"><p id="541a29ec-0d9b-4b1e-9a9c-f2e9a1095229" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="ac279f7b-0415-4868-850e-abed86c512a1"><div class="source"><a href="https://youtu.be/0V58ZQOBkO4">https://youtu.be/0V58ZQOBkO4</a></div></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

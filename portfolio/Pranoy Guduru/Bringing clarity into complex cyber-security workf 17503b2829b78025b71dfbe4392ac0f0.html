@@ -1,0 +1,1193 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@400;700&family=Mozilla+Text:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" /><title>Bringing clarity into complex cyber-security workflows, for Indusface</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style>
+<style>
+/* Portfolio aesthetic override */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: none !important;
+  background: url('../bg.png') repeat !important;
+  color: #ffffff !important;
+  font-family: 'Mozilla Text', sans-serif !important;
+  line-height: 1.65 !important;
+  white-space: normal !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+.pg-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 48px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pg-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Mozilla Text', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.6) !important;
+  text-decoration: none !important;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  transition: background 0.15s, color 0.15s;
+}
+.pg-back:hover {
+  background: rgba(255,255,255,0.1) !important;
+  color: #fff !important;
+}
+.pg-logo {
+  font-family: 'Mozilla Headline', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.75) !important;
+  text-decoration: none !important;
+  letter-spacing: -0.01em;
+}
+
+article.page {
+  max-width: 820px !important;
+  margin: 0 auto !important;
+  padding: 48px 48px 96px !important;
+}
+
+.page-header-icon { display: none !important; }
+
+.page-title {
+  font-family: 'Mozilla Headline', serif !important;
+  font-size: 2.2rem !important;
+  font-weight: 400 !important;
+  color: #ffffff !important;
+  line-height: 1.22 !important;
+  margin-bottom: 0.6em !important;
+  letter-spacing: -0.02em !important;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Mozilla Headline', serif !important;
+  color: #ffffff !important;
+  font-weight: 400 !important;
+  white-space: normal !important;
+}
+h1 { font-size: 1.75rem !important; margin-top: 2rem !important; }
+h2 { font-size: 1.4rem !important; margin-top: 2rem !important; }
+h3 { font-size: 1.1rem !important; margin-top: 1.5rem !important; }
+
+p, div.page-body p {
+  font-family: 'Mozilla Text', sans-serif !important;
+  color: rgba(255,255,255,0.78) !important;
+  margin-top: 0.45em !important;
+  margin-bottom: 0.45em !important;
+  white-space: normal !important;
+}
+strong { color: rgba(255,255,255,0.95) !important; font-weight: 600 !important; }
+em { color: rgba(255,255,255,0.78) !important; }
+
+ul, ol { color: rgba(255,255,255,0.78) !important; font-family: 'Mozilla Text', sans-serif !important; }
+li { color: rgba(255,255,255,0.78) !important; white-space: normal !important; }
+
+a, a.visited {
+  color: #FFC107 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+}
+
+hr { border-bottom: 1px solid rgba(255,255,255,0.08) !important; margin: 2em 0 !important; }
+
+blockquote {
+  border-left: 3px solid #FFC107 !important;
+  color: rgba(255,255,255,0.7) !important;
+  font-style: italic !important;
+  padding-left: 1.2em !important;
+  margin: 1.2em 0 !important;
+  background: transparent !important;
+}
+
+.callout {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 12px !important;
+  padding: 1rem 1.2rem !important;
+}
+.callout p, .callout div { color: rgba(255,255,255,0.8) !important; }
+
+figure { margin: 1.6em 0 !important; }
+.image { text-align: center !important; border-radius: 10px !important; overflow: hidden !important; }
+.image img, figure img {
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: 10px !important;
+  display: inline-block !important;
+}
+figcaption {
+  color: rgba(255,255,255,0.42) !important;
+  font-family: 'Mozilla Text', sans-serif !important;
+  font-size: 12px !important;
+  margin-top: 8px !important;
+  font-style: normal !important;
+  text-align: center !important;
+}
+
+.source {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+}
+.source a { color: #FFC107 !important; }
+
+.bookmark {
+  background: rgba(255,255,255,0.04) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  max-height: none !important;
+  flex-direction: column !important;
+  padding: 0 !important;
+}
+.bookmark-info { padding: 16px !important; }
+.bookmark-title {
+  color: rgba(255,255,255,0.9) !important;
+  font-size: 14px !important;
+  height: auto !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+.bookmark-description { color: rgba(255,255,255,0.5) !important; font-size: 12px !important; max-height: none !important; }
+.bookmark-href { color: rgba(255,255,255,0.3) !important; font-size: 11px !important; }
+
+[class*="block-color-gray_background"],
+[class*="block-color-teal_background"],
+[class*="block-color-blue_background"],
+[class*="block-color-yellow_background"],
+[class*="block-color-orange_background"],
+[class*="highlight-gray_background"],
+[class*="highlight-teal_background"],
+[class*="highlight-blue_background"] {
+  background: rgba(255,255,255,0.06) !important;
+  color: rgba(255,255,255,0.8) !important;
+}
+.block-color-blue { color: rgba(130,180,255,1) !important; }
+mark { color: rgba(255,255,255,0.78) !important; }
+
+.column-list {
+  display: flex !important;
+  gap: 32px !important;
+  flex-wrap: wrap !important;
+  align-items: flex-start !important;
+}
+.column {
+  flex: 1 1 180px !important;
+  min-width: 0 !important;
+  overflow: visible !important;
+}
+
+table, th, td { border-color: rgba(255,255,255,0.1) !important; color: rgba(255,255,255,0.78) !important; }
+th { color: rgba(255,255,255,0.4) !important; background: rgba(255,255,255,0.04) !important; }
+
+@media (max-width: 768px) {
+  .pg-nav { padding: 20px 20px 0; }
+  article.page { padding: 32px 20px 64px !important; }
+  .pg-logo { font-size: 15px; }
+  .page-title { font-size: 1.6rem !important; }
+  .column-list { flex-direction: column !important; gap: 20px !important; }
+  .column { flex: 1 1 100% !important; }
+}
+</style>
+
+<style>
+/* Full header override for subpages */
+.pg-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 48px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pg-site-name {
+  font-family: 'Mozilla Headline', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: -0.01em;
+  text-decoration: none !important;
+}
+.pg-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.pg-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #EAEFF1;
+  border: 1px solid #C0C7CD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s;
+  flex-shrink: 0;
+  text-decoration: none !important;
+}
+.pg-icon-btn:hover { opacity: 0.85; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
+.pg-icon-btn svg { width: 18px; height: 18px; }
+.pg-icon-btn.copied { background: #e8f5e9; border-color: #a5d6a7; }
+
+.pg-resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 12px;
+  background: #FFC107;
+  font-family: 'Mozilla Text', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1C2B40;
+  text-decoration: none !important;
+  transition: opacity 0.15s, transform 0.15s;
+  white-space: nowrap;
+}
+.pg-resume-btn:hover { opacity: 0.92; transform: translateY(-2px); }
+.pg-resume-btn svg { flex-shrink: 0; }
+
+.pg-has-tooltip { position: relative; }
+.pg-has-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  background: rgba(10,15,25,0.92);
+  color: #fff;
+  font-family: 'Mozilla Text', sans-serif;
+  font-size: 11px;
+  white-space: nowrap;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.08);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s, transform 0.18s;
+  z-index: 200;
+}
+.pg-has-tooltip:hover::after { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+.pg-back-row {
+  max-width: 1200px;
+  margin: 20px auto 0;
+  padding: 0 48px;
+}
+/* Override pg-back from previous injection */
+.pg-back {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-family: 'Mozilla Text', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: rgba(255,255,255,0.6) !important;
+  text-decoration: none !important;
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  background: rgba(255,255,255,0.05) !important;
+  transition: background 0.15s, color 0.15s !important;
+}
+.pg-back:hover { background: rgba(255,255,255,0.1) !important; color: #fff !important; }
+
+@media (max-width: 768px) {
+  .pg-header { padding: 24px 20px 0; flex-wrap: wrap; gap: 16px; }
+  .pg-back-row { padding: 0 20px; margin-top: 14px; }
+}
+</style>
+</head><body>
+<header class="pg-header">
+  <a href="../index.html" class="pg-site-name">Pranoy Guduru</a>
+  <div class="pg-header-right">
+
+    <a href="https://www.linkedin.com/in/gpranoy/" target="_blank"
+       class="pg-icon-btn pg-has-tooltip" data-tooltip="LinkedIn" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="#546E7A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="2" y="9" width="4" height="13" stroke="#546E7A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="4" cy="4" r="2" stroke="#546E7A" stroke-width="1.8"/>
+      </svg>
+    </a>
+
+    <button class="pg-icon-btn pg-has-tooltip" aria-label="Copy phone number"
+            data-tooltip="Copy phone number" data-copy="+91 9558677817"
+            onclick="pgCopyItem(event, this)">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z" stroke="#546E7A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <button class="pg-icon-btn pg-has-tooltip" aria-label="Copy email"
+            data-tooltip="Copy email" data-copy="gpranoy@gmail.com"
+            onclick="pgCopyItem(event, this)">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="4" width="20" height="16" rx="2" stroke="#546E7A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M22 7l-10 7L2 7" stroke="#546E7A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <a href="pranoy_cv_May2022.pdf" target="_blank"
+       class="pg-resume-btn pg-has-tooltip" data-tooltip="Download PDF">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#1C2B40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="14 2 14 8 20 8" stroke="#1C2B40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="16" y1="13" x2="8" y2="13" stroke="#1C2B40" stroke-width="2" stroke-linecap="round"/>
+        <line x1="16" y1="17" x2="8" y2="17" stroke="#1C2B40" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      View Resume
+    </a>
+
+  </div>
+</header>
+<div class="pg-back-row">
+  <a href="../index.html" class="pg-back">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back to home
+  </a>
+</div>
+<article id="17503b28-29b7-8025-b71d-fbe4392ac0f0" class="page sans"><header><h1 class="page-title" dir="auto">Bringing clarity into complex cyber-security workflows, for Indusface</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure id="17603b28-29b7-805c-b78d-f91ae9366d8b" class="image"><a href="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image.png"><img style="width:1392px" src="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-808e-8de4-d043cc080a47" class="">
+</p></div><div style="display:contents" dir="auto"><div id="17603b28-29b7-8064-b939-ca72f8699525" class="column-list"><div style="display:contents" dir="auto"><div id="17603b28-29b7-809c-b5cd-eebb63e3d179" style="width:33.333333333333336%" class="column"><div style="display:contents" dir="auto"><h3 id="17603b28-29b7-80d3-90e0-df80b2c1105b" class="">My Role &amp; Contribution</h3></div><div style="display:contents" dir="auto"><ul id="e5f30192-5969-4f1f-a1f7-aa38f1e75257" class="bulleted-list"><li style="list-style-type:disc">Designed the critical workflows, prototype flows to get early feedback and <strong>design validation</strong> from users.</li></ul></div><div style="display:contents" dir="auto"><ul id="17603b28-29b7-800a-abfa-df84a803aeb2" class="bulleted-list"><li style="list-style-type:disc">Led a team of 3 designers.</li></ul></div><div style="display:contents" dir="auto"><ul id="17603b28-29b7-806e-9e98-cd71cfad4077" class="bulleted-list"><li style="list-style-type:disc">Led conversations around workflows and with the stakeholders.</li></ul></div></div></div><div style="display:contents" dir="auto"><div id="17603b28-29b7-80b0-8a27-cd7214841072" style="width:33.333333333333336%" class="column"><div style="display:contents" dir="auto"><h3 id="f3b7edc6-8b26-40f8-8a0f-283e1e5ae190" class=""><strong>Responsibilities &amp; Deliverables</strong></h3></div><div style="display:contents" dir="auto"><ul id="0b79698d-6048-4ed4-9a16-f91fe212d272" class="bulleted-list"><li style="list-style-type:disc">Understand and evaluate needs of the customers. Collaborate with PM &amp; Engineering.</li></ul></div><div style="display:contents" dir="auto"><ul id="791e47c4-34ab-4795-a7e5-d54c7aa38c3e" class="bulleted-list"><li style="list-style-type:disc">Understand complex workflows and user needs.</li></ul></div><div style="display:contents" dir="auto"><ul id="54a49de1-52e9-4ebe-859a-3bde72f10aab" class="bulleted-list"><li style="list-style-type:disc">Deliver UX flows and wireframes.</li></ul></div><div style="display:contents" dir="auto"><ul id="5a7288af-75b7-4c9a-8c4c-1b21d69abb29" class="bulleted-list"><li style="list-style-type:disc">Testing, synthesising insights and improving the UX for all the personas.</li></ul></div></div></div><div style="display:contents" dir="auto"><div id="35403b28-29b7-8048-9bf8-f6e5b8efd261" style="width:33.33333333333333%" class="column"><div style="display:contents" dir="auto"><h3 id="17603b28-29b7-80cf-b53c-e9a1c66409ad" class="">Impact</h3></div><div style="display:contents" dir="auto"><ul id="17603b28-29b7-809b-96de-cf3e092be596" class="bulleted-list"><li style="list-style-type:disc">Improved the Information Architecture (IA), delivered the and tested the solutions with users, who responded that they are looking forward to using them.</li></ul></div></div></div></div></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-80e1-9e0f-f569418ab4f9" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17503b28-29b7-804b-84a2-e36ff05c3ed6" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="17603b28-29b7-80d2-9fed-ee56e2cd2778"/></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-800c-836e-e74d3725a719" class=""> </p></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-805b-99cd-ff483cc56769" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-80ad-8259-c5e8ebd30efd" class="">
+</p></div><div style="display:contents" dir="auto"><div id="17503b28-29b7-80a1-8c14-c8ebc88d315d" class="column-list"><div style="display:contents" dir="auto"><div id="17503b28-29b7-80c5-91fa-ccf960a2b879" style="width:50%" class="column"><div style="display:contents" dir="auto"><p id="17503b28-29b7-80fd-b0ec-f624ff99f549" class="">THE COMPANY</p></div><div style="display:contents" dir="auto"><h3 id="17503b28-29b7-8064-b555-c0290831a31b" class="">Indusface is a cybersecurity SaaS to protect apps and apis from security threats.</h3></div><div style="display:contents" dir="auto"><p id="17503b28-29b7-8060-90c5-c9ead08247d6" class="">Security teams can easily detect vulnerabilities and protect by making virtual patches on the platform. Its integrated in 5000+ apps.</p></div><div style="display:contents" dir="auto"><p id="17503b28-29b7-80dd-b49e-e89be359d9c7" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="17503b28-29b7-8036-930a-fba04fae9f73" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="17503b28-29b7-80dc-afd1-ec841779dd86" class="image"><a href="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%201.png"><img style="width:331px" src="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%201.png"/></a><figcaption>Source : indusface.com</figcaption></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-807d-af55-e258567134e7" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-8090-b633-f544fe91803a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-80d1-a532-e84ecb53ede9" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="17503b28-29b7-806a-b6c8-c1c19c23d213"/></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-8014-b77f-db368c5a9a96" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-80a5-b50d-e53acf131eb3" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17503b28-29b7-80c5-acf3-d1e60f3b7db4" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-80bf-9383-dc0afa8d82b8" class="">
+</p></div><div style="display:contents" dir="auto"><div id="35403b28-29b7-80a5-a13c-c918da1d715e" class="column-list"><div style="display:contents" dir="auto"><div id="35403b28-29b7-80cb-b974-d2f23bf65bf0" style="width:31.25%" class="column"><div style="display:contents" dir="auto"><p id="35403b28-29b7-80af-bf3a-cf8217285bf1" class="">CHALLENGE &amp; REQUIREMENT</p></div><div style="display:contents" dir="auto"><h3 id="17503b28-29b7-8026-a68d-c8348c7e4910" class="">Make the UX modern and self-serviced to enter global markets</h3></div><div style="display:contents" dir="auto"><p id="35403b28-29b7-8045-a1b9-d69b6b99663a" class="">Indusface was venturing to international markets with different needs, like self servicing, than their current Indian customers who liked their cybersecurity managed.</p></div><div style="display:contents" dir="auto"><p id="35403b28-29b7-802e-bb68-d5d3bb0a9f8d" class="">They wanted to make their design to compete with global competitors who had modern UX.</p></div></div></div><div style="display:contents" dir="auto"><div id="35403b28-29b7-80f9-85ad-e531d7ed24a2" style="width:68.75%" class="column"><div style="display:contents" dir="ltr"><figure id="17503b28-29b7-80bb-8dfa-cd5cd9e168cd" class="image"><a href="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%202.png"><img style="width:1056px" src="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%202.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="17503b28-29b7-80c9-ab2b-db0818bf6bdd" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17503b28-29b7-804b-a80a-ebf601407f32" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17503b28-29b7-8059-9e52-f0c8c17b5260" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="17503b28-29b7-80e4-8eaa-e5c1669c824d"/></div><div style="display:contents" dir="auto"><p id="17503b28-29b7-8083-ac22-c95c01318f4d" class="">
+</p></div><div style="display:contents" dir="auto"><div id="17503b28-29b7-8088-9632-d6b329e63c36" class="column-list"><div style="display:contents" dir="auto"><div id="17503b28-29b7-8052-a1a9-f66436299194" style="width:31.25%" class="column"><div style="display:contents" dir="auto"><p id="17503b28-29b7-809d-87a3-fde5b656f944" class="">WE SET OUT TO</p></div><div style="display:contents" dir="auto"><h3 id="17503b28-29b7-80c8-b084-e7c6048dc6fb" class="">Understand customers requirements, identify issues at various levels and address them.</h3></div><div style="display:contents" dir="auto"><p id="17503b28-29b7-80f2-9339-c94db43a2e44" class="">We spoke to customers who gave a walk through of the platform and told the major issues they face.</p></div><div style="display:contents" dir="auto"><p id="17503b28-29b7-805c-879f-fd2b5a4f2101" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="17503b28-29b7-8081-922f-ea4cb0d063bd" style="width:68.75%" class="column"><div style="display:contents" dir="ltr"><figure id="17603b28-29b7-80af-b6a5-f46ff09382bd" class="image"><a href="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%203.png"><img style="width:384px" src="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%203.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="17503b28-29b7-8023-97b1-d98c6f0d4030" class="">customer needs, the screens where the issue occurs, and the category of issue.</p></div></div></div></div></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-807b-8ff2-c23555efb00a" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-8047-9cb9-d60b48d3357b" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="17603b28-29b7-80f9-8abc-e1a3b558078d"/></div><div style="display:contents" dir="auto"><h2 id="17603b28-29b7-80dd-abd2-e9eee46fa419" class="">Let’s look at the issues and needs we identified, and how we addressed them. 👇🏽</h2></div><div style="display:contents" dir="auto"><p id="17503b28-29b7-807c-bdfc-e07f14d4e984" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="17503b28-29b7-802e-b9cd-f22e63f9311b"/></div><div style="display:contents" dir="auto"><p id="17503b28-29b7-800f-80fa-dc4efcde1f5b" class="">
+</p></div><div style="display:contents" dir="auto"><div id="35403b28-29b7-8035-a993-cd832bf700ce" class="column-list"><div style="display:contents" dir="auto"><div id="35403b28-29b7-80d3-a546-d17d8791c23f" style="width:43.75%" class="column"><div style="display:contents" dir="auto"><p id="35403b28-29b7-80ce-bde0-f407bde8d8ac" class="">ISSUE</p></div><div style="display:contents" dir="auto"><h3 id="35403b28-29b7-80e6-9bd4-fcb6d234b507" class="">1. The old Information Architecture reached a breaking point, with new and complex workflows</h3></div><div style="display:contents" dir="auto"><p id="35403b28-29b7-80df-bc4e-d3ede241d920" class="">Indusface’s IA grew organically over time with new features and workflows, as customers grew. Force-fitting new workflows into the same IA made it tough to navigate the Jobs to be done (JTBDs.)</p></div><div style="display:contents" dir="auto"><p id="35403b28-29b7-8065-b892-f22afa6cf210" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="35403b28-29b7-8010-a5d2-d9ae8c5b2d5e" style="width:56.25%" class="column"><div style="display:contents" dir="ltr"><figure id="35403b28-29b7-8029-9dab-d4c9eca30a9b" class="image"><a href="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%204.png"><img style="width:553px" src="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%204.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="17503b28-29b7-809e-83fd-ca0983647dcf" class="">
+</p></div><div style="display:contents" dir="auto"><div id="35403b28-29b7-80d6-81ec-e9dffa501ecf" class="column-list"><div style="display:contents" dir="auto"><div id="35403b28-29b7-8090-91c0-e12e4fdb9c4f" style="width:43.75%" class="column"><div style="display:contents" dir="auto"><p id="35403b28-29b7-8004-af4b-ea354d4851b6" class="">DESIGN RECOMMENDATION</p></div><div style="display:contents" dir="auto"><p id="17503b28-29b7-806f-932f-c50bb373049f" class="">We identified the Jobs to be done (JTBDs) of the personas and mapped the current paths. we identified how users didn’t resonate with the first click to start the path, in our user interviews.</p></div><div style="display:contents" dir="auto"><p id="35403b28-29b7-809b-aa91-c4a72b76b391" class=""><mark class="highlight-teal_background">We improved the flows improved on 3 parameters for all the major JTBDs</mark></p></div><div style="display:contents" dir="auto"><ul id="35403b28-29b7-80fb-aa24-c978ac1f0af0" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal_background">reduced the number of clicks</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="35403b28-29b7-8055-85d8-ccea0104adf8" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal_background">a meaningful first click</mark></li></ul></div><div style="display:contents" dir="auto"><ul id="35403b28-29b7-804d-8951-cd53cd27a3dc" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal_background">pathway to the next sub-task in the journey.</mark></li></ul></div><div style="display:contents" dir="auto"><p id="35403b28-29b7-80d7-8651-c67cc88059a0" class="">
+</p></div><div style="display:contents" dir="auto"><p id="35403b28-29b7-80f3-b405-faca95f7ffb8" class="">We reorganized information into meaningful categories</p></div></div></div><div style="display:contents" dir="auto"><div id="35403b28-29b7-803d-b4aa-ee37e19463ab" style="width:56.25%" class="column"><div style="display:contents" dir="ltr"><figure id="17603b28-29b7-80ec-9c11-d052f8080afc" class="image"><a href="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%205.png"><img style="width:960px" src="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%205.png"/></a><figcaption>Table with JTBDs and their paths.</figcaption></figure></div><div style="display:contents" dir="auto"><p id="35403b28-29b7-80b8-939f-f68f44f686d3" class="">
+</p></div><div style="display:contents" dir="auto"><p id="35403b28-29b7-802a-940c-cb653025992e" class="">
+</p></div><div style="display:contents" dir="ltr"><figure id="17603b28-29b7-8035-bf8e-cfce4475ca74" class="image"><a href="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%206.png"><img style="width:707.9833374023438px" src="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%206.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-80ab-8dd9-c0e9d9219b50" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-80d5-84d3-cc55346fd231" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17503b28-29b7-8058-86d8-c02d922e34ce" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-8005-bd80-f582ccd9c089" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-8076-bbf8-da66ea229706" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-80f3-b9a2-f18e71b9fb4c" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="17603b28-29b7-8052-a3b2-f98b0008347a"/></div><div style="display:contents" dir="auto"><div id="17603b28-29b7-80e3-9fe5-ea3623861c3c" class="column-list"><div style="display:contents" dir="auto"><div id="17603b28-29b7-8077-8395-d3b2beeb4912" style="width:25%" class="column"><div style="display:contents" dir="auto"><p id="17603b28-29b7-8020-ba20-f08bdd396807" class="">USER CONCERN</p></div><div style="display:contents" dir="auto"><h3 id="17603b28-29b7-8084-8355-ee11346f7431" class="">2. The information is heavy with numbers</h3></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-8029-9270-e5c388514f76" class="">It was difficult to identify anomalies, as one had to recollect rather than identify.</p></div></div></div><div style="display:contents" dir="auto"><div id="17603b28-29b7-8028-b9a2-e49c22f01b0e" style="width:75%" class="column"><div style="display:contents" dir="ltr"><figure id="17603b28-29b7-8078-84b7-de6915ab74e7" class="image"><a href="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%207.png"><img style="width:331px" src="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%207.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-80e2-b679-e3b5eeb8a5b6" class="">
+</p></div><div style="display:contents" dir="auto"><div id="35403b28-29b7-803d-84cb-ce6594a30407" class="column-list"><div style="display:contents" dir="auto"><div id="35403b28-29b7-803e-b766-ffe64b21f681" style="width:25%" class="column"><div style="display:contents" dir="auto"><p id="17603b28-29b7-8014-894e-f6047008c236" class="">DESIGN RECOMMENDATION</p></div><div style="display:contents" dir="auto"><h3 id="35403b28-29b7-80c9-aca9-fae5a9c462a4" class="">Making numbers visual to identify anomalies easily.</h3></div><div style="display:contents" dir="auto"><p id="35403b28-29b7-806b-8cfa-e32355f1bc07" class="">We designed visualizations for various data information points.</p></div></div></div><div style="display:contents" dir="auto"><div id="35403b28-29b7-80f8-82ca-ec9a188364d1" style="width:75%" class="column"><div style="display:contents" dir="ltr"><figure id="17603b28-29b7-807e-a7a6-d354479c5907" class="image"><a href="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%208.png"><img style="width:1104px" src="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%208.png"/></a><figcaption>The dashboard summarizes everything happening on the platform and the core value the product gives.</figcaption></figure></div><div style="display:contents" dir="ltr"><figure id="35403b28-29b7-8019-8b76-c26ca347cf04" class="image"><a href="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%209.png"><img style="width:1104px" src="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%209.png"/></a><figcaption>Visualized vulnerabilities and their status.</figcaption></figure></div><div style="display:contents" dir="ltr"><figure id="17603b28-29b7-80ee-a8d0-e9f2fd965ec7" class="image"><a href="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%2010.png"><img style="width:1104px" src="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%2010.png"/></a><figcaption>Apps which have highest no. of vulnerabilities are visualized as bar graphs.</figcaption></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-802d-bad8-d90efb819a22" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-8026-b8be-d6e057e44301" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-804d-8406-ff3b901b6287" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="17603b28-29b7-8001-89b1-e8edaafacaf1"/></div><div style="display:contents" dir="auto"><div id="17603b28-29b7-80ee-b277-dcd948bfa755" class="column-list"><div style="display:contents" dir="auto"><div id="17603b28-29b7-8076-b485-e039a80d2991" style="width:25%" class="column"><div style="display:contents" dir="auto"><p id="17603b28-29b7-8030-aeb7-f074ca422ffd" class="">USER NEED</p></div><div style="display:contents" dir="auto"><h3 id="17603b28-29b7-80c6-92d9-e1aae2a00e09" class="">3. Delving deep into the details of trends/summary</h3></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-8045-8023-dd848701331d" class="">The trends and summaries are important for the Chief Security officer, however they’d also like to see the details for a few things that catch their eye. These details were in other pages with no link between them.</p></div></div></div><div style="display:contents" dir="auto"><div id="17603b28-29b7-80ad-b844-ca7fadac2c71" style="width:75%" class="column"><div style="display:contents" dir="ltr"><figure id="17603b28-29b7-80bb-adde-e302a42689bb" class="image"><a href="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%2011.png"><img style="width:576px" src="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%2011.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-8010-866f-f840ebe765d8" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-8004-b592-fa64954f6555" class="">SOLUTION</p></div><div style="display:contents" dir="auto"><h3 id="17603b28-29b7-80e9-932e-ef4d93abd353" class="">Easy pathway from analytics to detailed lists</h3></div><div style="display:contents" dir="ltr"><figure id="17603b28-29b7-8033-965b-edac939ad4b1" class="image"><a href="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%2012.png"><img style="width:1344px" src="Bringing%20clarity%20into%20complex%20cyber-security%20workf/image%2012.png"/></a><figcaption>Clicking on the bar-chart in the viz, brings up the list with the filters applied. </figcaption></figure></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-808d-bd32-cb2f4c8bab93" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-8073-82ad-ed270aafdcab" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="17603b28-29b7-80d7-b6bc-e70d84ff6803"/></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-808c-9af9-e42886306f7f" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-804e-9c7e-fa7d796a36fe" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-8080-bac8-e0f552ad4633" class="">USER NEED</p></div><div style="display:contents" dir="auto"><h3 id="17603b28-29b7-8069-bb95-e034302bcefd" class="">4. Correlating actions done on the platform to changes</h3></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-80af-859b-c1b9b101547d" class="">While analyzing for anomalies, a view into the changes done on the platform is handy information. Without which one might conclude that a regular pattern as an anomaly</p></div><div style="display:contents" dir="ltr"><figure id="17603b28-29b7-8018-9ef0-d763702652f1" class="image"><a href="Bringing%20clarity%20into%20complex%20cyber-security%20workf/1849b573-13db-4148-a743-fd48046a9a16.png"><img style="width:386.2401931200966px" src="Bringing%20clarity%20into%20complex%20cyber-security%20workf/1849b573-13db-4148-a743-fd48046a9a16.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-800f-9f54-c4e1c0b9311c" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-8083-94f4-e419e0522953" class="">
+</p></div><div style="display:contents" dir="auto"><p id="17603b28-29b7-80a1-8d2f-d93452ca71e3" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span><script>
+function pgCopyItem(event, el) {
+  event.preventDefault();
+  var text = el.dataset.copy;
+  if (!text) return;
+  navigator.clipboard.writeText(text).then(function() {
+    var orig = el.dataset.tooltip;
+    el.dataset.tooltip = 'Copied: ' + text;
+    el.classList.add('copied');
+    setTimeout(function() { el.dataset.tooltip = orig; el.classList.remove('copied'); }, 2200);
+  });
+}
+</script>
+<script>
+(function () {
+  var ranges = [
+    [0x1F000, 0x1FFFF], [0x2600, 0x27BF], [0x2300, 0x23FF],
+    [0x1F300, 0x1F9FF], [0x1FA00, 0x1FAFF], [0x1F100, 0x1F1FF]
+  ];
+  function isEmoji(cp) {
+    return ranges.some(function(r) { return cp >= r[0] && cp <= r[1]; });
+  }
+  function stripEmoji(str) {
+    var out = [];
+    for (var i = 0; i < str.length; i++) {
+      var cp = str.codePointAt(i);
+      if (cp > 0xFFFF) i++;
+      if (!isEmoji(cp)) out.push(String.fromCodePoint(cp));
+    }
+    return out.join('');
+  }
+  function walk(node) {
+    if (node.nodeType === 3) {
+      var cleaned = stripEmoji(node.textContent);
+      if (cleaned !== node.textContent) node.textContent = cleaned;
+    } else {
+      node.childNodes.forEach(walk);
+    }
+  }
+  document.addEventListener('DOMContentLoaded', function () { walk(document.body); });
+})();
+</script>
+</body></html>
