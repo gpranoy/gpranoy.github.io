@@ -1027,11 +1027,7 @@ th { color: rgba(255,255,255,0.4) !important; background: rgba(255,255,255,0.04)
 }
 .pg-has-tooltip:hover::after { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-.pg-back-row {
-  max-width: 820px;
-  margin: 16px auto 0;
-  padding: 0 48px;
-}
+
 /* Override pg-back from previous injection */
 .pg-back {
   display: inline-flex !important;
@@ -1052,7 +1048,7 @@ th { color: rgba(255,255,255,0.4) !important; background: rgba(255,255,255,0.04)
 
 @media (max-width: 768px) {
   .pg-header { padding: 24px 20px 0; flex-wrap: wrap; gap: 16px; }
-  .pg-back-row { padding: 0 20px; margin-top: 14px; }
+  
 }
 
 /* ── Loading animation ── */
@@ -1093,7 +1089,7 @@ article.page { animation: pgFadeUp 0.55s ease-out 0.1s both; }
 
 /* ── Fixed header ── */
 body {
-  padding-top: 128px !important;
+  padding-top: 72px !important;
 }
 .pg-header {
   position: fixed !important;
@@ -1105,39 +1101,24 @@ body {
   padding: 0 max(20px, calc((100vw - 820px) / 2 + 48px)) !important;
   z-index: 100;
   background: url('../bg.png') repeat !important;
-  transition: box-shadow 0.25s ease !important;
+  box-shadow: 0 2px 28px rgba(0,0,0,0.55);
+  transition: none !important;
 }
-.pg-header.scrolled {
-  box-shadow: 0 2px 28px rgba(0,0,0,0.55) !important;
-}
+
 .pg-site-name {
   /* ensure vertical center in fixed bar */
   line-height: 1 !important;
 }
-.pg-back-row {
-  position: fixed !important;
-  top: 72px !important;
-  left: 0 !important;
-  right: 0 !important;
-  z-index: 99 !important;
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 10px max(20px, calc((100vw - 820px) / 2 + 48px)) !important;
-  background: url('../bg.png') repeat !important;
-  border-bottom: 1px solid rgba(255,255,255,0.06) !important;
-}
+
 
 /* ── Mobile responsive ── */
 @media (max-width: 820px) {
-  body { padding-top: 110px !important; }
+  body { padding-top: 60px !important; }
   .pg-header {
     padding: 0 20px !important;
     height: 60px !important;
   }
-  .pg-back-row {
-    top: 60px !important;
-    padding: 8px 20px !important;
-  }
+  
   .pg-site-name { font-size: 18px !important; }
   .pg-icon-btn { width: 36px !important; height: 36px !important; }
   .pg-resume-btn { width: 130px !important; font-size: 13px !important; }
@@ -1148,8 +1129,8 @@ body {
 
 @media (max-width: 480px) {
   .pg-header { flex-wrap: wrap !important; height: auto !important; padding: 12px 20px !important; gap: 10px !important; }
-  body { padding-top: 130px !important; }
-  .pg-back-row { top: auto !important; position: static !important; }
+  body { padding-top: 80px !important; }
+  
   .pg-resume-btn { width: 120px !important; font-size: 12px !important; }
   .pg-header-right { gap: 8px !important; }
 }
@@ -1198,12 +1179,7 @@ body {
 
   </div>
 </header>
-<div class="pg-back-row">
-  <a href="../index.html" class="pg-back">
-    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Back to home
-  </a>
-</div>
+
 <article id="6070ea49-95f7-46ae-9f99-f2145cfa8a5d" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">❓</span></div><h1 class="page-title" dir="auto"><strong>Discursive &amp; Speculative Design</strong></h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="57be7a42-d2c3-4486-a072-f68f71ae91b6"><div style="font-size:1.5em"><span class="icon">👇🏼</span></div><div style="width:100%">You can take a look at my works during my Masters degree in New Media Design. </div></figure></div><div style="display:contents" dir="ltr"><figure id="2f40748f-de07-42f6-a7df-69be169d857c"><a href="http://gpranoy.github.io/#/explorations/" class="block-color-blue_background bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Now, that you&#x27;re here...</div><div class="bookmark-description">Pranoy Guduru. I&#x27;m a master&#x27;s graduate in New Media Design from the National Institute of Design, India. Interested in experimenting with emerging media and technologies. Interaction Design | New Media | Creative Technology</div></div><div class="bookmark-href">http://gpranoy.github.io/#/explorations/</div></div></a></figure></div><div style="display:contents" dir="ltr"><figure id="1abf3f7a-6112-49c3-b507-4ea072a4294b" class="image"><a href="Discursive%20&amp;%20Speculative%20Design/Untitled.png"><img style="width:720px" src="Discursive%20&amp;%20Speculative%20Design/Untitled.png"/></a><figcaption>^ Am I a prediction engine? Can they make predictive models of ‘me’? How are they going to profit out of knowing me so deeply?</figcaption></figure></div><div style="display:contents" dir="auto"><p id="47c3efa1-24ca-4648-bae6-94950a0c41c3" class="">
 </p></div><div style="display:contents" dir="auto"><p id="beb5f60d-0ba4-4119-a0bf-fb642499087f" class="">
 </p></div><div style="display:contents" dir="ltr"><figure id="27d35a03-0680-4036-9825-151e020faafe" class="image"><a href="Discursive%20&amp;%20Speculative%20Design/Untitled%201.png"><img style="width:576px" src="Discursive%20&amp;%20Speculative%20Design/Untitled%201.png"/></a><figcaption>^ Determinism or Freewill?</figcaption></figure></div><div style="display:contents" dir="auto"><p id="8a2a11a6-310e-4b15-9e07-404bb0585119" class="">
@@ -1253,14 +1229,7 @@ body {
     }
   };
 
-  /* ── Scroll shadow on fixed header ── */
-  var hdr = document.querySelector('.pg-header');
-  if (hdr) {
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 10) hdr.classList.add('scrolled');
-      else hdr.classList.remove('scrolled');
-    }, { passive: true });
-  }
+
 })();
 </script>
 <script>

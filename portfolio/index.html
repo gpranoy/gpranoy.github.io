@@ -49,12 +49,7 @@
       justify-content: space-between;
       padding: 0 max(294px, calc(50vw - 426px));
       height: 80px;
-      transition: box-shadow 0.25s ease;
-    }
-
-    .header.scrolled {
-    background: #00000010;
-    backdrop-filter: blur(12px);
+      box-shadow: 0 2px 28px rgba(0, 0, 0, 0.55);
     }
 
     .site-name {
@@ -234,7 +229,7 @@
     }
 
     .hero-card-inner {
-      background: #ffffff;
+      background: #FEF7FF;
       border: 1px solid #CAC4D0;
       border-radius: 16px;
       overflow: hidden;
@@ -421,7 +416,7 @@
     }
 
     .prod-card {
-      background: #fff;
+      background: #FEF7FF;
       border: 1px solid #CAC4D0;
       border-radius: 12px;
       overflow: hidden;
@@ -1134,16 +1129,6 @@
       });
     });
 
-    /* ── Fixed header scroll shadow ── */
-    (function() {
-      var header = document.querySelector('.header');
-      if (!header) return;
-      function onScroll() {
-        if (window.scrollY > 10) header.classList.add('scrolled');
-        else header.classList.remove('scrolled');
-      }
-      window.addEventListener('scroll', onScroll, { passive: true });
-    })();
   </script>
 
 </body>

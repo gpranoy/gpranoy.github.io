@@ -1027,11 +1027,7 @@ th { color: rgba(255,255,255,0.4) !important; background: rgba(255,255,255,0.04)
 }
 .pg-has-tooltip:hover::after { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-.pg-back-row {
-  max-width: 820px;
-  margin: 16px auto 0;
-  padding: 0 48px;
-}
+
 /* Override pg-back from previous injection */
 .pg-back {
   display: inline-flex !important;
@@ -1052,7 +1048,7 @@ th { color: rgba(255,255,255,0.4) !important; background: rgba(255,255,255,0.04)
 
 @media (max-width: 768px) {
   .pg-header { padding: 24px 20px 0; flex-wrap: wrap; gap: 16px; }
-  .pg-back-row { padding: 0 20px; margin-top: 14px; }
+  
 }
 
 /* ── Loading animation ── */
@@ -1093,7 +1089,7 @@ article.page { animation: pgFadeUp 0.55s ease-out 0.1s both; }
 
 /* ── Fixed header ── */
 body {
-  padding-top: 128px !important;
+  padding-top: 72px !important;
 }
 .pg-header {
   position: fixed !important;
@@ -1105,39 +1101,24 @@ body {
   padding: 0 max(20px, calc((100vw - 820px) / 2 + 48px)) !important;
   z-index: 100;
   background: url('../bg.png') repeat !important;
-  transition: box-shadow 0.25s ease !important;
+  box-shadow: 0 2px 28px rgba(0,0,0,0.55);
+  transition: none !important;
 }
-.pg-header.scrolled {
-  box-shadow: 0 2px 28px rgba(0,0,0,0.55) !important;
-}
+
 .pg-site-name {
   /* ensure vertical center in fixed bar */
   line-height: 1 !important;
 }
-.pg-back-row {
-  position: fixed !important;
-  top: 72px !important;
-  left: 0 !important;
-  right: 0 !important;
-  z-index: 99 !important;
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 10px max(20px, calc((100vw - 820px) / 2 + 48px)) !important;
-  background: url('../bg.png') repeat !important;
-  border-bottom: 1px solid rgba(255,255,255,0.06) !important;
-}
+
 
 /* ── Mobile responsive ── */
 @media (max-width: 820px) {
-  body { padding-top: 110px !important; }
+  body { padding-top: 60px !important; }
   .pg-header {
     padding: 0 20px !important;
     height: 60px !important;
   }
-  .pg-back-row {
-    top: 60px !important;
-    padding: 8px 20px !important;
-  }
+  
   .pg-site-name { font-size: 18px !important; }
   .pg-icon-btn { width: 36px !important; height: 36px !important; }
   .pg-resume-btn { width: 130px !important; font-size: 13px !important; }
@@ -1148,8 +1129,8 @@ body {
 
 @media (max-width: 480px) {
   .pg-header { flex-wrap: wrap !important; height: auto !important; padding: 12px 20px !important; gap: 10px !important; }
-  body { padding-top: 130px !important; }
-  .pg-back-row { top: auto !important; position: static !important; }
+  body { padding-top: 80px !important; }
+  
   .pg-resume-btn { width: 120px !important; font-size: 12px !important; }
   .pg-header-right { gap: 8px !important; }
 }
@@ -1198,12 +1179,7 @@ body {
 
   </div>
 </header>
-<div class="pg-back-row">
-  <a href="../index.html" class="pg-back">
-    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Back to home
-  </a>
-</div>
+
 <article id="031790b4-14c8-4819-98aa-541bc089633c" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🤖</span></div><h1 class="page-title" dir="auto">UX for ML Workflows - Helpshift</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="86f858ea-febf-4c04-9d86-e90bba155677" class="">
 </p></div><div style="display:contents" dir="ltr"><figure id="48938682-16b9-4792-8d61-923c78e3dc04" class="image"><a href="UX%20for%20ML%20Workflows%20-%20Helpshift/Untitled.png"><img style="width:720px" src="UX%20for%20ML%20Workflows%20-%20Helpshift/Untitled.png"/></a></figure></div><div style="display:contents" dir="auto"><div id="d698eca0-3df7-4584-85b3-0e25c2b61d49" class="column-list"><div style="display:contents" dir="auto"><div id="b282472d-a13d-4dd7-958a-96a711d32259" style="width:50%" class="column"><div style="display:contents" dir="auto"><h3 id="a91de7bd-035e-4fed-8e0a-1eb34a6fabde" class="">My Role &amp; Contribution</h3></div><div style="display:contents" dir="auto"><p id="4632ccd4-3ae4-432f-9919-52a2c3e47a25" class="">I worked as a designer with the <strong>AI-triad </strong>(has an specialist each in Product, Engg, Design) team at Helpshift. The team was responsible to evaluate needs of customers, design and deliver the ML features for the product.</p></div></div></div><div style="display:contents" dir="auto"><div id="f9474547-905d-4688-b53c-01ce19be440f" style="width:50%" class="column"><div style="display:contents" dir="auto"><h3 id="57e112c6-ebdc-43fa-ad90-f99966d0b619" class=""><strong>Responsibilities &amp; Deliverables</strong></h3></div><div style="display:contents" dir="auto"><ul id="1f5e1b26-488d-42a1-b0ef-4f212c7d856a" class="bulleted-list"><li style="list-style-type:disc">Understand and evaluate needs of the customers. Collaborate with PM &amp; Engineering.</li></ul></div><div style="display:contents" dir="auto"><ul id="d37cfa54-7628-43b8-824b-1c41d7f7c0df" class="bulleted-list"><li style="list-style-type:disc">Ideate AI workflows for the product.</li></ul></div><div style="display:contents" dir="auto"><ul id="81e91fe9-4b36-4053-9662-f958a9e82fee" class="bulleted-list"><li style="list-style-type:disc">Deliver UX flows and wireframes.</li></ul></div><div style="display:contents" dir="auto"><ul id="8d90e141-1707-472f-a39b-1c8e05c6c3b2" class="bulleted-list"><li style="list-style-type:disc">Testing, synthesising insights and improving the UX for all the personas.</li></ul></div><div style="display:contents" dir="auto"><ul id="39b702dc-5413-4983-a572-467858664599" class="bulleted-list"><li style="list-style-type:disc">Designing on-boarding guides.</li></ul></div></div></div></div></div><div style="display:contents" dir="auto"><h3 id="5abf243e-9d4f-4a8b-8ed5-353145a6dbee" class="">Impact</h3></div><div style="display:contents" dir="auto"><ul id="6be8f1db-38f9-47b8-ab82-9ace951644bf" class="bulleted-list"><li style="list-style-type:disc"><strong>I worked on the product area for 3 major milestones</strong> for the product area. From opening up the MVP to all customers till advanced features like segmentation &amp; personalisation.</li></ul></div><div style="display:contents" dir="auto"><ul id="7317e273-d0e0-4f87-bf3d-e5b652e49573" class="bulleted-list"><li style="list-style-type:disc">Working on the ML Features in phases and taking constant user feedback to improve.</li></ul></div><div style="display:contents" dir="ltr"><figure id="eed3ed41-7ec6-41e3-9701-cf184b2c0c14" class="image"><a href="UX%20for%20ML%20Workflows%20-%20Helpshift/Untitled%201.png"><img style="width:960px" src="UX%20for%20ML%20Workflows%20-%20Helpshift/Untitled%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="b790807f-fb68-4180-8994-8a7286b354bc" class="">
 </p></div><div style="display:contents" dir="auto"><hr id="36adb058-05e3-440d-9c4f-b43cbdc9a3ba"/></div><div style="display:contents" dir="auto"><p id="804f2218-91ac-42a6-b9a8-ef4cf76e90ca" class="">
@@ -1267,14 +1243,7 @@ body {
     }
   };
 
-  /* ── Scroll shadow on fixed header ── */
-  var hdr = document.querySelector('.pg-header');
-  if (hdr) {
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 10) hdr.classList.add('scrolled');
-      else hdr.classList.remove('scrolled');
-    }, { passive: true });
-  }
+
 })();
 </script>
 <script>
