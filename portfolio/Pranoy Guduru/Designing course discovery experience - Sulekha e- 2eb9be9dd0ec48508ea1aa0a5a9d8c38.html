@@ -1101,8 +1101,10 @@ body {
   padding: 0 max(20px, calc((100vw - 820px) / 2 + 48px)) !important;
   z-index: 100;
   background: url('../bg.png') repeat !important;
-  box-shadow: 0 2px 28px rgba(0,0,0,0.55);
-  transition: none !important;
+  transition: box-shadow 0.25s ease !important;
+}
+.pg-header.scrolled {
+  box-shadow: 0 2px 28px rgba(0,0,0,0.55) !important;
 }
 
 .pg-site-name {
@@ -1133,6 +1135,27 @@ body {
   
   .pg-resume-btn { width: 120px !important; font-size: 12px !important; }
   .pg-header-right { gap: 8px !important; }
+}
+
+.pg-back-content {
+  max-width: 820px;
+  margin: 28px auto 0;
+  padding: 0 48px;
+}
+.pg-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Mozilla Text', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5) !important;
+  text-decoration: none !important;
+  transition: color 0.15s;
+}
+.pg-back-link:hover { color: rgba(255,255,255,0.85) !important; }
+@media (max-width: 820px) {
+  .pg-back-content { padding: 0 20px; margin-top: 20px; }
 }
 </style>
 </head><body>
@@ -1180,6 +1203,12 @@ body {
   </div>
 </header>
 
+<div class="pg-back-content">
+  <a href="../index.html" class="pg-back-link">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back to home
+  </a>
+</div>
 <article id="2eb9be9d-d0ec-4850-8ea1-aa0a5a9d8c38" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">⭐</span></div><h1 class="page-title" dir="auto">Designing course discovery experience - Sulekha e-learn</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="be6cf933-51e4-481a-a8e9-a62f77bbee5a" class="">
 </p></div><div style="display:contents" dir="auto"><div id="adb8aa66-6933-41c8-bfbf-374e8be4b76c" class="column-list"><div style="display:contents" dir="auto"><div id="c759bede-4141-485a-8b46-14df247de119" style="width:50%" class="column"><div style="display:contents" dir="auto"><p id="a94a4265-e045-4643-b3bb-16613e71a7de" class=""><strong>About E-Learn</strong></p></div><div style="display:contents" dir="auto"><p id="32ae4c8c-d1f5-4a50-9265-c744398b3737" class="">Sulekha e-learn, now called <a href="https://www.capshine.com/">Capshine</a> is a marketplace for online live learning. Students can approach a teacher on the platform and take classes with them, according to their learning needs and requirements. The platform encourages teachers to become entrepreneurs and run their classes.</p></div></div></div><div style="display:contents" dir="auto"><div id="32066d04-8efe-4fdc-b3e1-a73e3d8c82d5" style="width:50%" class="column"><div style="display:contents" dir="auto"><p id="08d75f87-8cd3-4220-88ba-716ca43fac80" class=""><strong>My Role &amp; Contribution</strong></p></div><div style="display:contents" dir="auto"><p id="5bfbc146-c612-42c6-a766-78563dc46134" class="">I’ve led the project, presented design artifacts to all stakeholders, gathered feedback and iterated. </p></div><div style="display:contents" dir="auto"><p id="175aec29-4489-44bc-b395-767b1bcfd78b" class="">
 </p></div><div style="display:contents" dir="auto"><p id="4fecbd9a-4558-4536-93a8-c17c05205bf7" class=""><strong>Duration</strong> : 3 months</p></div><div style="display:contents" dir="auto"><p id="65a044bf-f4fe-4df0-858f-8daaf36c24d7" class=""><strong>Team</strong> : Parshuram (Visual design), Akhil (UX Research), Saurabh (Principal Designer &amp; Review)</p></div></div></div></div></div><div style="display:contents" dir="auto"><h3 id="6837a1bd-26e5-4a77-99d2-7e6192d5a933" class="block-color-blue">In the first phase, we worked to design the course discovery &amp; selection experience for learners. </h3></div><div style="display:contents" dir="auto"><p id="74fa8a11-7cb6-4edd-8be4-f499c86e43b7" class="">
@@ -1254,6 +1283,13 @@ body {
   };
 
 
+  /* ── Scroll shadow on fixed header ── */
+  var hdr = document.querySelector('.pg-header');
+  if (hdr) {
+    window.addEventListener('scroll', function() {
+      hdr.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+  }
 })();
 </script>
 <script>

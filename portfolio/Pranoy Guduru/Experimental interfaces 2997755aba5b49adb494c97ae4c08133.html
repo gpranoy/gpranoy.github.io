@@ -1101,8 +1101,10 @@ body {
   padding: 0 max(20px, calc((100vw - 820px) / 2 + 48px)) !important;
   z-index: 100;
   background: url('../bg.png') repeat !important;
-  box-shadow: 0 2px 28px rgba(0,0,0,0.55);
-  transition: none !important;
+  transition: box-shadow 0.25s ease !important;
+}
+.pg-header.scrolled {
+  box-shadow: 0 2px 28px rgba(0,0,0,0.55) !important;
 }
 
 .pg-site-name {
@@ -1133,6 +1135,27 @@ body {
   
   .pg-resume-btn { width: 120px !important; font-size: 12px !important; }
   .pg-header-right { gap: 8px !important; }
+}
+
+.pg-back-content {
+  max-width: 820px;
+  margin: 28px auto 0;
+  padding: 0 48px;
+}
+.pg-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Mozilla Text', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5) !important;
+  text-decoration: none !important;
+  transition: color 0.15s;
+}
+.pg-back-link:hover { color: rgba(255,255,255,0.85) !important; }
+@media (max-width: 820px) {
+  .pg-back-content { padding: 0 20px; margin-top: 20px; }
 }
 </style>
 </head><body>
@@ -1180,6 +1203,12 @@ body {
   </div>
 </header>
 
+<div class="pg-back-content">
+  <a href="../index.html" class="pg-back-link">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back to home
+  </a>
+</div>
 <article id="2997755a-ba5b-49ad-b494-c97ae4c08133" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🎩</span></div><h1 class="page-title" dir="auto">Experimental interfaces</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="0320f7ba-776f-40bb-b839-a40f54633eda" class="">
 </p></div><div style="display:contents" dir="auto"><p id="2e5d7781-8d3a-4a86-b2f0-e2a896ca3947" class="">I&#x27;ve collected some interesting and <strong>novel interactions</strong> here for digital products I&#x27;ve worked on.</p></div><div style="display:contents" dir="auto"><p id="79e5f045-5118-47fd-9547-a1d06bc4d86a" class="">Showcasing some wire-framing and prototyping Skills on XD.</p></div><div style="display:contents" dir="auto"><p id="97ffa5b3-5328-4f26-a87d-be5d3b09534d" class="">
 </p></div><div style="display:contents" dir="auto"><ul id="74089c3e-8855-4914-8dea-ba11c6729385" class="bulleted-list"><li style="list-style-type:disc">Dashboard to accept and track orders - For <a href="https://www.mbyom.com/">mByom</a> - Buyer and seller applications.</li></ul></div><div style="display:contents" dir="auto"><div id="f9f61040-2a23-41c1-9bd2-6e7c7b6776cf" class="column-list"><div style="display:contents" dir="auto"><div id="29da7724-2051-4a0f-9467-15abb6ce7fb0" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="ba6fec49-e8fc-4f16-a124-fabf455d59d8" class="image"><a href="Experimental%20interfaces/Buyer-seller_01_process2.2020-03-16_15_32_41.gif"><img style="width:240px" src="Experimental%20interfaces/Buyer-seller_01_process2.2020-03-16_15_32_41.gif"/></a><figcaption>^ A kanban board inspired dashboard was prototyped. </figcaption></figure></div><div style="display:contents" dir="auto"><p id="8be2e98b-3e13-4109-84ae-b1b5c64d05c4" class="">+ Gives clarity into the &#x27;movement &amp; progress&#x27; of the orders</p></div><div style="display:contents" dir="auto"><p id="2d09ca18-2d6d-4058-a948-fa99ec049de0" class="">- It would require a learning curve. Especially with the complexity that the system and the workflow, already brought into the  picture, it wasn&#x27;t desirable. </p></div></div></div><div style="display:contents" dir="auto"><div id="bb72ddb3-78a7-4114-a518-303f0eba5ef9" style="width:50%" class="column"><div style="display:contents" dir="ltr"><figure id="fbf80868-4e25-4acc-8682-67b05f2f8a1e" class="image"><a href="Experimental%20interfaces/Buyer-seller_01_interaction.2020-03-18_15_15_40.gif"><img style="width:336px" src="Experimental%20interfaces/Buyer-seller_01_interaction.2020-03-18_15_15_40.gif"/></a><figcaption>^ Adapting the best things from the first prototype (<em>on the left</em>) in a familiar UX pattern.</figcaption></figure></div><div style="display:contents" dir="auto"><p id="7978d8f2-788a-421d-b16a-16739b564053" class="">+ Similar to Whatsapp UX patterns, which users are familiar with and use regularly.</p></div><div style="display:contents" dir="auto"><p id="2e4c0ccc-e6bc-4c8f-b2b9-c02344ea3f8b" class="">+ Gives clarity into the movement and progress of the orders</p></div></div></div></div></div><div style="display:contents" dir="auto"><p id="5b6ad0f6-a0a1-4886-9f32-d2561f650f96" class="">
@@ -1235,6 +1264,13 @@ body {
   };
 
 
+  /* ── Scroll shadow on fixed header ── */
+  var hdr = document.querySelector('.pg-header');
+  if (hdr) {
+    window.addEventListener('scroll', function() {
+      hdr.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+  }
 })();
 </script>
 <script>
